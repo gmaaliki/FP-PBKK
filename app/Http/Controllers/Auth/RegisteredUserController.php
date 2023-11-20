@@ -34,6 +34,9 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'description' => ['nullable', 'string', 'max:500'],
+            'occupation' => ['nullable', 'string', 'max:50'],
+            'user_privilege' => ['required', 'string', Rule::in(['admin', 'seller', 'buyer'])],
         ]);
 
         $user = User::create([
