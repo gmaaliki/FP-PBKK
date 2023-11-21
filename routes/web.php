@@ -36,4 +36,6 @@ Route::middleware('auth')->group(function () {
 
 // Route::post('/register_user_education', [UserEducationController::class, 'store']);
 
+// Route::post('/register_user_certification', [UserCertificationController::class, 'store']);
+
 require __DIR__.'/auth.php';
