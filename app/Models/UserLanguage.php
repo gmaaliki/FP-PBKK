@@ -15,4 +15,9 @@ class UserLanguage extends Model
         'language',
         'language_level',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

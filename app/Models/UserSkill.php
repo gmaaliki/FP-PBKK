@@ -15,4 +15,9 @@ class UserSkill extends Model
         'skill',
         'experience_level',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

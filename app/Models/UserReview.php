@@ -15,4 +15,9 @@ class UserReview extends Model
         'star_rating',
         'review_description',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

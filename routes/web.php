@@ -2,7 +2,8 @@
 
 use App\Models\Category;
 use App\Models\Subcategory;
-
+use App\Models\User;
+use App\Models\UserSkill;
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -49,7 +50,28 @@ Route::get('/test-relationships', function () {
     dd($category, $subcategory, $categoryWithSubcategories, $subcategories);
 });
 
+Route::get('/test-user-skill-relationship', function () {
+    // Create a user
+    $user = User::create([
+        'name' => 'John Doe',
+        'email' => 'jodsaadassn.doe@example.com',
+        'password' => bcrypt('password123'), // Make sure to hash the password
+        'description' => 'A user description',
+        'occupation' => 'Software Developer',
+        'user_privilege' => 'admin', // Modify based on your user privileges
+    ]);
 
+    // Create sample data for each relationship
+   $user->userskill()->create(['skill' => 'Programming', 'experience_level' => 'Intermediate']);
+
+    // Retrieve the user with their associated data
+    $userWithRelatedData = User::with([
+        'userskill',
+    ])->find($user->id);
+
+    // Output the results (you can modify this part based on your needs)
+    dd($user, $userWithRelatedData);
+});
   
 //Route::post('/register_user_language', [UserLanguageController::class, 'store']);
 
