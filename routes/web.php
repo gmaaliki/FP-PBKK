@@ -40,4 +40,6 @@ Route::middleware('auth')->group(function () {
 
 // Route::post('/register_user_notification', [UserNotificationController::class, 'store']);
 
+// Route::post('/register_user_review', [UserReviewController::class, 'store']);
+
 require __DIR__.'/auth.php';
