@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('subcategory', function (Blueprint $table) {
+            $table->id();
+            $table->string('subcategory_name');
+            $table->foreignId('category_id')->constrained('category');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('subcategory');
     }
 };
