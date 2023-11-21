@@ -74,6 +74,5 @@ class UserLanguageController extends Controller
     public function destroy(UserLanguage $userLanguage)
     {
         $userLanguage->delete();
-
     }
 }

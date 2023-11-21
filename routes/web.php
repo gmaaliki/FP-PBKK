@@ -32,4 +32,6 @@ Route::middleware('auth')->group(function () {
   
 //Route::post('/register_user_language', [UserLanguageController::class, 'store']);
 
+// Route::post('/register_user_skill', [UserSkillController::class, 'store']);
+
 require __DIR__.'/auth.php';
