@@ -1,6 +1,8 @@
 <?php
+
 use App\Http\Controllers\UserLanguageController;
 use App\Http\Controllers\UserSkillController;
+use App\Http\Controllers\UserEducationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +28,7 @@ Route::post('/reverse-me', function (Request $request) {
   
 Route::post('/register_user_language', [UserLanguageController::class, 'store']);
 Route::post('/register_user_skill', [UserSkillController::class, 'store']);
+Route::post('/register_user_education', [UserEducationController::class, 'store']);
 
 Route::get('/posts', function(){
     dd('test api update');
