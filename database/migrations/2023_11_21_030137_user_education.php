@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('major');
             $table->integer('year');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

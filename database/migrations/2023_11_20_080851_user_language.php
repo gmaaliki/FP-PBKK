@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('language');
             $table->string('language_level');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
