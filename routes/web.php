@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Subcategory;
+
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +30,23 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/test-relationships', function () {
+    // Create a category
+    $category = Category::create(['category_name' => 'Example Category']);
+
+    // Create a subcategory and associate it with the category
+    $subcategory = $category->subcategories()->create(['subcategory_name' => 'Example Subcategory']);
+
+    // Retrieve a category with its subcategories
+    $categoryWithSubcategories = Category::with('subcategories')->find($category->id);
+
+    // Access subcategories
+    $subcategories = $categoryWithSubcategories->subcategories;
+
+    // Output the results (you can modify this part based on your needs)
+    dd($category, $subcategory, $categoryWithSubcategories, $subcategories);
 });
 
 
