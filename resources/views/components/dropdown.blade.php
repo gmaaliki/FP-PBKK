@@ -1,22 +1,33 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
+@props(['align' => 'center', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
 
 @php
 switch ($align) {
     case 'left':
-        $alignmentClasses = 'ltr:origin-top-left rtl:origin-top-right start-0';
+        $alignmentClasses = 'left-0';
         break;
     case 'top':
-        $alignmentClasses = 'origin-top';
+        $alignmentClasses = 'top-0';
         break;
     case 'right':
+        $alignmentClasses = 'right-0';
+        break;
+    case 'center':
+        $alignmentClasses = 'left-1/2 transform -translate-x-1/2';
+        break;
     default:
-        $alignmentClasses = 'ltr:origin-top-right rtl:origin-top-left end-0';
+        $alignmentClasses = 'right-0';
         break;
 }
 
 switch ($width) {
     case '48':
         $width = 'w-48';
+        break;
+    case '64':
+        $width = 'w-64';
+        break;
+    case '80':
+        $width = 'w-80';
         break;
 }
 @endphp
