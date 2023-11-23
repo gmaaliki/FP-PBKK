@@ -167,7 +167,7 @@
                         <x-nav-link>
                             {{ __('Graphics & Design') }}
                         </x-nav-link>
-                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-auto left-0 mt-0">
+                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-150 left-0 mt-0">
                             <ul>
                                     <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
                                     <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
@@ -176,87 +176,94 @@
                                     <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
                             </ul>
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Art & Illustration</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Illustration</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Children's Book Illustration</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Portraits & Caricatures</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Cartoons & Comics</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Pattern Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Tattoo Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Storyboards</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">NFT Art</a></li>
                             </ul>
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
-                            </ul>
-                        </ul>   
-                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 border-r-0 space-y-1 py-4 px-3 group-hover:block w-60 h-auto left-60 mt-0">
-                            <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
-                            </ul>
-                            <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
-                            </ul>
-                            <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Miscellaneous</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Design Advice</a></li>
                             </ul>
                         </ul>   
-                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 border-r-0 space-y-1 py-4 px-3 group-hover:block w-60 h-auto ml-120 mt-0">
+                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 border-r-0 space-y-1 py-4 px-3 group-hover:block w-60 h-150 left-60 mt-0">
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Web & App Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Website Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">App Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">UX Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Landing Page Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Icon Design</a></li>
                             </ul>
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Product & Gaming</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Industrial & Product Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Character Modeling</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Game Art</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Graphics for Streamers</a></li>
                             </ul>
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Print Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Flyer Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brochure Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Poster Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Catalog Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Menu Design</a></li>
                             </ul>
                         </ul>   
-                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 space-y-1 py-4 px-3 rounded-r-sm group-hover:block w-60 h-auto ml-180 mt-0">
+                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 border-r-0 space-y-1 py-4 px-3 group-hover:block w-60 h-150 ml-120 mt-0">
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Visual Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Image Editing</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Presentation Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Background Removal</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Infographic Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Vector Tracing</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Resume Design</a></li>
                             </ul>
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Marketing Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Social Media Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Social Posts & Banners</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Email Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Web Banners</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Signage Design</a></li>
                             </ul>
                             <ul>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Logo Design</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brand Style Guides</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Business Cards & Stationery</a></li>
-                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fonts & Typography</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Packaging & Covers</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Packaging & Label Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Book Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Book Covers</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Album Cover Design</a></li>
+                            </ul>
+                        </ul>   
+                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 space-y-1 py-4 px-3 rounded-r-sm group-hover:block w-60 h-150 ml-180 mt-0">
+                            <ul>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Architecture & Building Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Architecture & Interior Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Landscape Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Building Engineering</a></li>
+                            </ul>
+                            <ul>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Fashion & Merchandise</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">T-Shirts & Merchandise</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fashion Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Jewelry Design</a></li>
+                            </ul>
+                            <ul>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">3D Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Architecture</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Industrial Design</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Fashion & Garment</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Printing Characters</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Landscape</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Game Art</a></li>
+                                    <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Jewelry Design</a></li>
                             </ul>
                         </ul>  
                     </div>
@@ -265,9 +272,109 @@
                     
                    
                     <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
-                        <x-nav-link>
-                            {{ __('Programming & Tech') }}
-                        </x-nav-link>
+                        <div class="group inline-block relative">
+                            <x-nav-link>
+                                {{ __('Programming & Tech') }}
+                            </x-nav-link>
+                                <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-150 left-0 mt-0">
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Website Development</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">E-Commerce Development</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Landing Pages</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Blogs</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Website Platforms</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">WordPress</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Shopify</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Wix</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Custom Websites</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">GoDaddy</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Website Maintenance</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Website Customization</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Bug Fixes</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Backup & Migration</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Speed Optimization</a></li>
+                                </ul>
+                            </ul>   
+                            <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 border-r-0 space-y-1 py-4 px-3 group-hover:block w-60 h-150 left-60 mt-0">
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Software Development</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Website Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">App Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">UX Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Landing Page Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Icon Design</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Product & Gaming</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Industrial & Product Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Character Modeling</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Game Art</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Graphics for Streamers</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Print Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Flyer Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Brochure Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Poster Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Catalog Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Menu Design</a></li>
+                                </ul>
+                            </ul>   
+                            <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 border-r-0 space-y-1 py-4 px-3 group-hover:block w-60 h-150 ml-120 mt-0">
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Visual Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Image Editing</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Presentation Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Background Removal</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Infographic Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Vector Tracing</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Resume Design</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Marketing Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Social Media Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Social Posts & Banners</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Email Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Web Banners</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Signage Design</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Packaging & Covers</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Packaging & Label Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Book Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Book Covers</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Album Cover Design</a></li>
+                                </ul>
+                            </ul>   
+                            <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-l-0 space-y-1 py-4 px-3 rounded-r-sm group-hover:block w-60 h-150 ml-180 mt-0">
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Architecture & Building Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Architecture & Interior Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Landscape Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Building Engineering</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Fashion & Merchandise</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">T-Shirts & Merchandise</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Fashion Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">Jewelry Design</a></li>
+                                </ul>
+                                <ul>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">3D Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Architecture</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Industrial Design</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Fashion & Garment</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Printing Characters</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Landscape</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Game Art</a></li>
+                                        <li><a href="#" class="block px-2 py-1 hover:bg-gray-200 font-extralight">3D Jewelry Design</a></li>
+                                </ul>
+                            </ul>  
+                        </div>
                     </div>
 
                     <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
