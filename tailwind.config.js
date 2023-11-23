@@ -14,8 +14,27 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            left: {
+                '120': '30rem',
+                '180': '45rem',
+                '270': '53rem',
+                'custom-1': '70rem',
+            },
+            width: {
+                '120': '30rem',
+                '180': '45rem',
+                '240': '60rem',
+                'custom-1': '70rem',
+            },
+            margin: {
+                '120': '30rem',
+                '180': '45rem',
+            },
         },
     },
 
     plugins: [forms],
+
+    
 };
+
