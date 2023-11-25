@@ -62,7 +62,8 @@
                         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                             <!-- Item 1 -->
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-60 h-60 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                Hello
                             </div>
                             <!-- Item 2 -->
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -117,6 +118,123 @@
                         </div>
                     </div>
 
+
+                    <div class="mt-20 text-lg font-semibold">
+                            About the seller
+                    </div>
+                    <div class="mt-5 flex">
+                        
+                        <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
+                        <div>
+                            <div class="ml-4 font-semibold text-lg">
+                                Nick
+                            </div>
+                            <div class="ml-4 flex items-center">
+                                <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"/>
+                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                </svg>
+                                <div class="ml-1">
+                                    5
+                                </div>
+                                <div class="ml-1">
+                                    (
+                                </div>
+                                <div class="underline">
+                                    1493
+                                </div>
+                                <div>
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                    <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-black hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Contact Me</button>
+                    </div>
+
+                    <div class="mt-12 border border-gray-300 w-full p-5">
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, dolor voluptas voluptatum repudiandae, mollitia quidem soluta perferendis, beatae amet sunt et non voluptate odit alias quo. Natus aliquid consectetur soluta?
+                        </div>
+                        <div class="flex border-t border-gray-300 mt-5 py-2 font-semibold">
+                            <div class="w-1/2">
+                                        Languages
+                                        <div class="font-normal">
+                                            English
+                                        </div>
+                           </div>
+                           <div class="w-1/2">
+                                        Member Since
+                                        <div class="font-normal">
+                                            2018
+                                        </div>
+                           </div>  
+                        </div>
+                    </div>
+
+                    <div class="mt-20 text-lg font-semibold">
+                            Reviews
+                    </div>
+                    <div class="flex">
+                        <div class="w-1/2">
+                            338 Reviews for this Gig
+                        </div>
+                        <div class="w-1/2">
+                            <div class="flex items-center">
+                                <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"/>
+                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                </svg>
+                                <div class="ml-1">
+                                    5
+                                </div>
+                                <div class="ml-1">
+                                    (
+                                </div>
+                                <div class="underline">
+                                    1493
+                                </div>
+                                <div>
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full border-gray-300 border mt-12"></div>
+
+                    <div class="mt-8">
+                        <div>
+                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
+                            <div>
+                                <div class="ml-4 font-semibold text-lg">
+                                    Nick
+                                </div>
+                                <div class="ml-4 flex items-center">
+                                    <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z"/>
+                                        <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                    </svg>
+                                    <div class="ml-1">
+                                        5
+                                    </div>
+                                    <div class="ml-1">
+                                        (
+                                    </div>
+                                    <div class="underline">
+                                        1493
+                                    </div>
+                                    <div>
+                                        )
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                        
+                        <div class="w-full border-gray-300 border mt-8"></div>
+                    </div>
                 </div>
             </div>
 
@@ -168,6 +286,9 @@
                     </div>
                 </div>
             </div>
+
+            
+
 
             
             
