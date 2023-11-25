@@ -151,8 +151,8 @@
         
     </div>
 
-    <div class="flex mt-4 border-black border-2 ">
-            <div class="flex mx-auto">
+    <div class="flex mt-4 border-gray-200 border ">
+            <div class="flex mx-auto z-50">
 
                 <!-- Navigation Links -->
                 <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">

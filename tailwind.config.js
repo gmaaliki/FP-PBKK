@@ -22,6 +22,7 @@ export default {
             },
             width: {
                 '120': '30rem',
+                '150': '40rem',
                 '180': '45rem',
                 '240': '60rem',
                 'custom-1': '70rem',
@@ -40,6 +41,5 @@ export default {
 
     plugins: [forms],
 
-    
 };
 
