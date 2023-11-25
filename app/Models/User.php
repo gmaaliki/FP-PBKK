@@ -75,4 +75,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserCertification::class);
     }
+
+    public function user() {
+        return $this->hasMany(Service::class);
+    }
+
+    public function transaction() {
+        return $this->belongsToMany(Service::class, 'transactions', 'user_id', 'service_id')->withPivot('quantity', 'status');
+    }
+
+    public function wishlist() {
+        return $this->belongsToMany(Service::class, 'wishlists', 'user_id', 'service_id');
+    }
 }
