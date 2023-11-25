@@ -36,13 +36,16 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'description' => ['nullable', 'string', 'max:500'],
             'occupation' => ['nullable', 'string', 'max:50'],
-            'user_privilege' => ['required', 'string', Rule::in(['admin', 'seller', 'buyer'])],
+           // 'user_privilege' => ['required', 'string', Rule::in(['admin', 'seller', 'buyer'])],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'description' => $request->description,
+            'occupation' => $request->occupation,
+            
         ]);
 
         event(new Registered($user));
