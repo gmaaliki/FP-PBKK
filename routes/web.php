@@ -1,5 +1,10 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Subcategory;
+use App\Models\User;
+use App\Models\UserSkill;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +34,60 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 Route::get('/gigs', function(){
     return view('gigs');
 });
+
+Route::get('/test-relationships', function () {
+    // Create a category
+    $category = Category::create(['category_name' => 'Example Category']);
+
+    // Create a subcategory and associate it with the category
+    $subcategory = $category->subcategories()->create(['subcategory_name' => 'Example Subcategory']);
+
+    // Retrieve a category with its subcategories
+    $categoryWithSubcategories = Category::with('subcategories')->find($category->id);
+
+    // Access subcategories
+    $subcategories = $categoryWithSubcategories->subcategories;
+
+    // Output the results (you can modify this part based on your needs)
+    dd($category, $subcategory, $categoryWithSubcategories, $subcategories);
+});
+
+Route::get('/test-user-skill-relationship', function () {
+    // Create a user
+    $user = User::create([
+        'name' => 'John Doe',
+        'email' => 'jodsaadassn.doe@example.com',
+        'password' => bcrypt('password123'), // Make sure to hash the password
+        'description' => 'A user description',
+        'occupation' => 'Software Developer',
+        'user_privilege' => 'admin', // Modify based on your user privileges
+    ]);
+
+    // Create sample data for each relationship
+   $user->userskill()->create(['skill' => 'Programming', 'experience_level' => 'Intermediate']);
+
+    // Retrieve the user with their associated data
+    $userWithRelatedData = User::with([
+        'userskill',
+    ])->find($user->id);
+
+    // Output the results (you can modify this part based on your needs)
+    dd($user, $userWithRelatedData);
+});
+  
+//Route::post('/register_user_language', [UserLanguageController::class, 'store']);
+
+// Route::post('/register_user_skill', [UserSkillController::class, 'store']);
+
+// Route::post('/register_user_education', [UserEducationController::class, 'store']);
+
+// Route::post('/register_user_certification', [UserCertificationController::class, 'store']);
+
+// Route::post('/register_user_notification', [UserNotificationController::class, 'store']);
+
+// Route::post('/register_user_review', [UserReviewController::class, 'store']);
 
 require __DIR__.'/auth.php';
