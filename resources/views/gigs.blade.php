@@ -206,7 +206,7 @@
                     <div class="w-full border-gray-300 border mt-12"></div>
 
                     <div class="mt-8">
-                        <div>
+                        <div class="flex">
                             <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
                             <div>
                                 <div class="ml-4 font-semibold text-lg">
@@ -220,21 +220,17 @@
                                     <div class="ml-1">
                                         5
                                     </div>
-                                    <div class="ml-1">
-                                        (
-                                    </div>
-                                    <div class="underline">
-                                        1493
-                                    </div>
-                                    <div>
-                                        )
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                                        
+                        <div class="w-full">
+                            <div class="ml-16 px-3 text-justify">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates explicabo tempora fuga rem consectetur provident nobis vitae, perspiciatis earum, maiores odio optio voluptas officia, enim delectus sequi. Laudantium, tempora quas!
+                            </div>
+                        </div>  
                         <div class="w-full border-gray-300 border mt-8"></div>
                     </div>
+
                 </div>
             </div>
 
@@ -262,10 +258,10 @@
                     <div class="border border-gray-300 py-5">
                         <div class="tab-content" id="basicContent">
                             <div class="flex px-5 font-semibold">
-                                <div>
+                                <div class="w-1/2">
                                     Basic Plan Title
                                 </div>
-                                <div class="ml-48">
+                                <div class="w-1/2 flex justify-end">
                                     $365
                                 </div>
                             </div>
@@ -274,14 +270,76 @@
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
                                 </div>
                             </div>
+                                        
+                            <div class="mt-2 px-5 flex">
+                                <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
+                                <div class="ml-3">
+                                    4 days delivery
+                                </div>
+                            </div>
+                            <div class="flex place-content-center mt-5">
+                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                    Continue
+                                </button>
+                            </div>
                             
                         
                         </div>
                         <div class="tab-content hidden" id="standardContent">
-                        Standard Plan Description
+                        <div class="flex px-5 font-semibold">
+                                <div class="w-1/2">
+                                    Standard Plan Title
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    $365
+                                </div>
+                            </div>
+                            <div class="flex mt-5 px-5">
+                                <div class="w-80 text-justify">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
+                                </div>
+                            </div>
+                                        
+                            <div class="mt-2 px-5 flex">
+                                <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
+                                <div class="ml-3">
+                                    4 days delivery
+                                </div>
+                            </div>
+                            <div class="flex place-content-center mt-5">
+                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                    Continue
+                                </button>
+                            </div>
+                            
                         </div>
                         <div class="tab-content hidden" id="premiumContent">
-                        Premium Plan Description
+                        <div class="flex px-5 font-semibold">
+                                <div class="w-1/2">
+                                    Premium Plan Title
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    $365
+                                </div>
+                            </div>
+                            <div class="flex mt-5 px-5">
+                                <div class="w-80 text-justify">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
+                                </div>
+                            </div>
+                                        
+                            <div class="mt-2 px-5 flex">
+                                <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
+                                <div class="ml-3">
+                                    4 days delivery
+                                </div>
+                            </div>
+                            <div class="flex place-content-center mt-5">
+                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                    Continue
+                                </button>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
