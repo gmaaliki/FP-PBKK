@@ -152,7 +152,7 @@
     </div>
 
     <div class="flex mt-4 border-gray-200 border ">
-            <div class="flex mx-auto z-50">
+            <div class="flex mx-auto z-40">
 
                 <!-- Navigation Links -->
                 <!-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -442,7 +442,7 @@
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
-            <div class="mt-3 space-y-1">
+            <div class="mt-3 space-y-1 z-50">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
