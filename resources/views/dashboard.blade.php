@@ -8,8 +8,26 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+                <div class="flex">
+                    <div class="w-2/12 flex items-center">
+                        <div class="w-full text-right">
+                            <button class="p-1 rounded-full bg-white border border-gray-100 shadow-lg">
+                                <x-left-arrow-icon />
+                            </button>
+                        </div>
+                    </div>
+                    <div id="sliderContainer" class="w-full h-96 border">
+                        <ul id="slider" class="flex w-full border">
+
+                        </ul>
+                    </div>
+                    <div class="w-2/12 flex items-center">
+                        <div class="w-full text-right">
+                            <button class="p-1 rounded-full bg-white border border-gray-100 shadow-lg">
+                                <x-right-arrow-icon />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
