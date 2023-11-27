@@ -62,7 +62,8 @@
                         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                             <!-- Item 1 -->
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-60 h-60 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                Hello
                             </div>
                             <!-- Item 2 -->
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -91,16 +92,16 @@
                         </div>
                         <!-- Slider controls -->
                         <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
                                 </svg>
                                 <span class="sr-only">Previous</span>
                             </span>
                         </button>
                         <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                                 </svg>
                                 <span class="sr-only">Next</span>
@@ -115,6 +116,119 @@
                         <div class="text-lg font-normal">
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod minus, incidunt blanditiis nulla aliquam aut magni accusamus non necessitatibus quas adipisci architecto quidem quaerat corporis natus dignissimos ipsa rerum hic.
                         </div>
+                    </div>
+
+
+                    <div class="mt-20 text-lg font-semibold">
+                            About the seller
+                    </div>
+                    <div class="mt-5 flex">
+                        
+                        <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
+                        <div>
+                            <div class="ml-4 font-semibold text-lg">
+                                Nick
+                            </div>
+                            <div class="ml-4 flex items-center">
+                                <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"/>
+                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                </svg>
+                                <div class="ml-1">
+                                    5
+                                </div>
+                                <div class="ml-1">
+                                    (
+                                </div>
+                                <div class="underline">
+                                    1493
+                                </div>
+                                <div>
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                    <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-black hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Contact Me</button>
+                    </div>
+
+                    <div class="mt-12 border border-gray-300 w-full p-5">
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, dolor voluptas voluptatum repudiandae, mollitia quidem soluta perferendis, beatae amet sunt et non voluptate odit alias quo. Natus aliquid consectetur soluta?
+                        </div>
+                        <div class="flex border-t border-gray-300 mt-5 py-2 font-semibold">
+                            <div class="w-1/2">
+                                        Languages
+                                        <div class="font-normal">
+                                            English
+                                        </div>
+                           </div>
+                           <div class="w-1/2">
+                                        Member Since
+                                        <div class="font-normal">
+                                            2018
+                                        </div>
+                           </div>  
+                        </div>
+                    </div>
+
+                    <div class="mt-20 text-lg font-semibold">
+                            Reviews
+                    </div>
+                    <div class="flex">
+                        <div class="w-1/2">
+                            338 Reviews for this Gig
+                        </div>
+                        <div class="w-1/2">
+                            <div class="flex items-center">
+                                <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z"/>
+                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                </svg>
+                                <div class="ml-1">
+                                    5
+                                </div>
+                                <div class="ml-1">
+                                    (
+                                </div>
+                                <div class="underline">
+                                    1493
+                                </div>
+                                <div>
+                                    )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full border-gray-300 border mt-12"></div>
+
+                    <div class="mt-8">
+                        <div class="flex">
+                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
+                            <div>
+                                <div class="ml-4 font-semibold text-lg">
+                                    Nick
+                                </div>
+                                <div class="ml-4 flex items-center">
+                                    <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z"/>
+                                        <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                    </svg>
+                                    <div class="ml-1">
+                                        5
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <div class="ml-16 px-3 text-justify">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates explicabo tempora fuga rem consectetur provident nobis vitae, perspiciatis earum, maiores odio optio voluptas officia, enim delectus sequi. Laudantium, tempora quas!
+                            </div>
+                        </div>  
+                        <div class="w-full border-gray-300 border mt-8"></div>
                     </div>
 
                 </div>
@@ -144,10 +258,10 @@
                     <div class="border border-gray-300 py-5">
                         <div class="tab-content" id="basicContent">
                             <div class="flex px-5 font-semibold">
-                                <div>
+                                <div class="w-1/2">
                                     Basic Plan Title
                                 </div>
-                                <div class="ml-48">
+                                <div class="w-1/2 flex justify-end">
                                     $365
                                 </div>
                             </div>
@@ -156,18 +270,83 @@
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
                                 </div>
                             </div>
+                                        
+                            <div class="mt-2 px-5 flex">
+                                <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
+                                <div class="ml-3">
+                                    4 days delivery
+                                </div>
+                            </div>
+                            <div class="flex place-content-center mt-5">
+                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                    Continue
+                                </button>
+                            </div>
                             
                         
                         </div>
                         <div class="tab-content hidden" id="standardContent">
-                        Standard Plan Description
+                        <div class="flex px-5 font-semibold">
+                                <div class="w-1/2">
+                                    Standard Plan Title
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    $365
+                                </div>
+                            </div>
+                            <div class="flex mt-5 px-5">
+                                <div class="w-80 text-justify">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
+                                </div>
+                            </div>
+                                        
+                            <div class="mt-2 px-5 flex">
+                                <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
+                                <div class="ml-3">
+                                    4 days delivery
+                                </div>
+                            </div>
+                            <div class="flex place-content-center mt-5">
+                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                    Continue
+                                </button>
+                            </div>
+                            
                         </div>
                         <div class="tab-content hidden" id="premiumContent">
-                        Premium Plan Description
+                        <div class="flex px-5 font-semibold">
+                                <div class="w-1/2">
+                                    Premium Plan Title
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    $365
+                                </div>
+                            </div>
+                            <div class="flex mt-5 px-5">
+                                <div class="w-80 text-justify">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
+                                </div>
+                            </div>
+                                        
+                            <div class="mt-2 px-5 flex">
+                                <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
+                                <div class="ml-3">
+                                    4 days delivery
+                                </div>
+                            </div>
+                            <div class="flex place-content-center mt-5">
+                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                    Continue
+                                </button>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+
+            
+
 
             
             
