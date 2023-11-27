@@ -38,6 +38,10 @@ Route::get('/gigs', function(){
     return view('gigs');
 });
 
+Route::get('/addgigs', function(){
+    return view('addgigs');
+});
+
 Route::get('/test-relationships', function () {
     // Create a category
     $category = Category::create(['category_name' => 'Example Category']);
