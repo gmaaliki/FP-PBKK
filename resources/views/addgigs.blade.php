@@ -10,7 +10,7 @@
     </div>
 </div> -->
 
-<div class="mt-12 flex items-center justify-center">
+<div class="mt-8 flex items-center justify-center">
     <div class="w-3/5">
         <div class="text-2xl">
             Overview

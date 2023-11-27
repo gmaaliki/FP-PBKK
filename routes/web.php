@@ -42,6 +42,14 @@ Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
+Route::get('/addgigs', function(){
+    return view('addgigs');
+});
+
+Route::get('/manage_order', function(){
+    return view('manage_order');
+});
+
 Route::get('/test-relationships', function () {
     // Create a category
     $category = Category::create(['category_name' => 'Example Category']);

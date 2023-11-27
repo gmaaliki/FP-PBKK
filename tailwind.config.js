@@ -26,6 +26,7 @@ export default {
                 '180': '45rem',
                 '240': '60rem',
                 'custom-1': '70rem',
+                '1/7': '14.2857%',
             },
             margin: {
                 '120': '30rem',
@@ -35,6 +36,13 @@ export default {
                 '120': '30rem',
                 '150': '38rem',
                 '180': '45rem',
+            },
+            fontSize: {
+                '4xl': '2.441rem',
+                '5xl': '3.052rem',
+            },
+            minHeight: {
+                '800': '800px',
             },
         },
     },
