@@ -4,15 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ServicePicture;
+use App\Models\UserReview;
 
-class ServicePictureSeeder extends Seeder
+class UserReviewSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        ServicePicture::factory()->count(450)->create();
+        UserReview::factory()->count(150)->create();
     }
 }

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Wishlist>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserNotification>
  */
-class WishlistFactory extends Factory
+class UserNotificationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,10 @@ class WishlistFactory extends Factory
     public function definition(): array
     {
         return [
+            'title' => fake()->sentence(),
+            'description' => fake()->text(50),
             'user_id' => fake()->numberBetween(1,100),
-            'service_id' => fake()->numberBetween(1,150),
         ];
+
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_certification', function (Blueprint $table) {
             $table->id();
-            $table->string('certificate_or_award');
+            $table->string('certificate_name');
             $table->string('certification_from');
             $table->integer('year');
             $table->foreignId('user_id')->constrained();

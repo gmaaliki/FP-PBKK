@@ -17,7 +17,8 @@ class ServicePictureFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'path' => 'asdf',
+            'service_id' => fake()->numberBetween(1,150),
         ];
     }
 }
