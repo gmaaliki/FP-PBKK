@@ -54,6 +54,10 @@ Route::get('/wishlist', function(){
     return view('wishlist');
 });
 
+Route::get('/subcategory', function(){
+    return view('subcategory');
+});
+
 Route::get('/test-relationships', function () {
     // Create a category
     $category = Category::create(['category_name' => 'Example Category']);
