@@ -50,6 +50,10 @@ Route::get('/manage_order', function(){
     return view('manage_order');
 });
 
+Route::get('/wishlist', function(){
+    return view('wishlist');
+});
+
 Route::get('/test-relationships', function () {
     // Create a category
     $category = Category::create(['category_name' => 'Example Category']);
