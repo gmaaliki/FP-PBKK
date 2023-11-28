@@ -16,8 +16,19 @@ class TransactionFactory extends Factory
      */
     public function definition(): array
     {
+
+        $status = [
+            'Cancelled',
+            'Pendiing',
+            'On Hold',
+            'Success',
+        ];
+        
         return [
-            //
+            'quantity' => fake()->numberBetween(1,10),
+            'status' => fake()->randomElement($status),
+            'user_id' => fake()->numberBetween(1,100),
+            'service_id' => fake()->numberBetween(1,150),
         ];
     }
 }

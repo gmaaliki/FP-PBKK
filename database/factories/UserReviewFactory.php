@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Wishlist>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserReview>
  */
-class WishlistFactory extends Factory
+class UserReviewFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,9 +16,11 @@ class WishlistFactory extends Factory
      */
     public function definition(): array
     {
+
         return [
+            'star_rating' => fake()->numberBetween(1,5),
+            'review_description' => fake()->text(),
             'user_id' => fake()->numberBetween(1,100),
-            'service_id' => fake()->numberBetween(1,150),
         ];
     }
 }

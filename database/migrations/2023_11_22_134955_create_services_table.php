@@ -17,15 +17,15 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('basic_plan_title');
-            $table->string('basic_plan_price');
+            $table->integer('basic_plan_price');
             $table->string('basic_plan_description');
             $table->string('basic_plan_days');
             $table->string('standard_plan_title');
-            $table->string('standard_plan_price');
+            $table->integer('standard_plan_price');
             $table->string('standard_plan_description');
             $table->string('standard_plan_days');
             $table->string('premium_plan_title');
-            $table->string('premium_plan_price');
+            $table->integer('premium_plan_price');
             $table->string('premium_plan_description');
             $table->string('premium_plan_days');
             $table->foreignId('user_id')->constrained();

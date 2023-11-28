@@ -4,15 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ServicePicture;
+use App\Models\Subcategory;
 
-class ServicePictureSeeder extends Seeder
+class SubcategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        ServicePicture::factory()->count(450)->create();
+        Subcategory::factory()->count(50)->create();
     }
 }

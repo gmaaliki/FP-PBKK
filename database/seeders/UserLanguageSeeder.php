@@ -4,15 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ServicePicture;
+use App\Models\UserLanguage;
 
-class ServicePictureSeeder extends Seeder
+class UserLanguageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        ServicePicture::factory()->count(450)->create();
+        UserLanguage::factory()->count(150)->create();
     }
 }

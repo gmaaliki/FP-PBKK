@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Wishlist>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Subcategory>
  */
-class WishlistFactory extends Factory
+class SubcategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +18,8 @@ class WishlistFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->numberBetween(1,100),
-            'service_id' => fake()->numberBetween(1,150),
+            'subcategory_name' => fake()->word(),  
+            'category_id' => fake()->numberBetween(1,5),
         ];
     }
 }
