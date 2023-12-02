@@ -25,13 +25,13 @@
 / Programming & Tech
                 </div>
                 <div class="mt-8 text-3xl font-bold">
-                    I will build your professional dropshipping shopify store
+                    {{ $service->title}}
                 </div>
                 <div class="mt-5 flex">
                     <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
                     <div>
                         <div class="ml-4 font-semibold text-lg">
-                            Nick
+                        {{ $service->username}}
                         </div>
                         <div class="ml-4 flex items-center">
                             <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -39,13 +39,13 @@
                                 <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
                             </svg>
                             <div class="ml-1">
-                                5
+                            {{ number_format($service->avg_star_rating, 1) }}
                             </div>
                             <div class="ml-1">
                                 (
                             </div>
                             <div class="underline">
-                                1493
+                            {{ $service->total_reviews}}
                             </div>
                             <div>
                                 )
@@ -62,8 +62,7 @@
                         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                             <!-- Item 1 -->
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-60 h-60 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                Hello
+                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                             </div>
                             <!-- Item 2 -->
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -114,7 +113,7 @@
                             About this gig
                         </div>
                         <div class="text-lg font-normal">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod minus, incidunt blanditiis nulla aliquam aut magni accusamus non necessitatibus quas adipisci architecto quidem quaerat corporis natus dignissimos ipsa rerum hic.
+                        {{ $service->description}}
                         </div>
                     </div>
 
@@ -127,7 +126,7 @@
                         <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
                         <div>
                             <div class="ml-4 font-semibold text-lg">
-                                Nick
+                            {{ $service->username}}
                             </div>
                             <div class="ml-4 flex items-center">
                                 <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -135,13 +134,13 @@
                                     <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
                                 </svg>
                                 <div class="ml-1">
-                                    5
+                                {{ number_format($service->avg_star_rating, 1) }}
                                 </div>
                                 <div class="ml-1">
                                     (
                                 </div>
                                 <div class="underline">
-                                    1493
+                                {{ $service->total_reviews}}
                                 </div>
                                 <div>
                                     )
@@ -161,14 +160,17 @@
                         <div class="flex border-t border-gray-300 mt-5 py-2 font-semibold">
                             <div class="w-1/2">
                                         Languages
+
+                                        @foreach($languages as $language)
                                         <div class="font-normal">
-                                            English
+                                            <li>{{ $language }}</li>
                                         </div>
+                                        @endforeach
                            </div>
                            <div class="w-1/2">
                                         Member Since
                                         <div class="font-normal">
-                                            2018
+                                        {{ $registrationYear }}
                                         </div>
                            </div>  
                         </div>
@@ -179,7 +181,7 @@
                     </div>
                     <div class="flex">
                         <div class="w-1/2">
-                            338 Reviews for this Gig
+                        {{ $service->total_reviews}} Reviews for this Gig
                         </div>
                         <div class="w-1/2">
                             <div class="flex items-center">
@@ -188,13 +190,13 @@
                                     <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
                                 </svg>
                                 <div class="ml-1">
-                                    5
+                                {{ number_format($service->avg_star_rating, 1) }}
                                 </div>
                                 <div class="ml-1">
                                     (
                                 </div>
                                 <div class="underline">
-                                    1493
+                                {{ $service->total_reviews}}
                                 </div>
                                 <div>
                                     )
@@ -204,32 +206,42 @@
                     </div>
 
                     <div class="w-full border-gray-300 border mt-12"></div>
-
-                    <div class="mt-8">
-                        <div class="flex">
-                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
-                            <div>
-                                <div class="ml-4 font-semibold text-lg">
-                                    Nick
-                                </div>
-                                <div class="ml-4 flex items-center">
-                                    <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z"/>
-                                        <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
-                                    </svg>
-                                    <div class="ml-1">
-                                        5
+                    @if(count($userReviews) > 0)
+                        @foreach($userReviews as $review)
+                        
+                        <div class="mt-8">
+                            <div class="flex">
+                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
+                                <div>
+                                    <div class="ml-4 font-semibold text-lg">
+                                        {{$review->name}}
+                                    </div>
+                                    <div class="ml-4 flex items-center">
+                                        <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z"/>
+                                            <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                        </svg>
+                                        <div class="ml-1">
+                                        {{$review->star_rating}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="w-full">
+                                <div class="ml-16 px-3 text-justify">
+                                               {{$review->review_description}}
+                                </div>
+                            </div>  
+                            <div class="w-full border-gray-300 border mt-8"></div>
                         </div>
-                        <div class="w-full">
-                            <div class="ml-16 px-3 text-justify">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates explicabo tempora fuga rem consectetur provident nobis vitae, perspiciatis earum, maiores odio optio voluptas officia, enim delectus sequi. Laudantium, tempora quas!
+                        @endforeach
+                    @else
+                        <div class="mt-8">
+                            <div>
+                                    No review avalaible
                             </div>
-                        </div>  
-                        <div class="w-full border-gray-300 border mt-8"></div>
-                    </div>
+                        </div>
+                    @endif
 
                 </div>
             </div>
@@ -259,87 +271,93 @@
                         <div class="tab-content" id="basicContent">
                             <div class="flex px-5 font-semibold">
                                 <div class="w-1/2">
-                                    Basic Plan Title
+                                    {{$service->basic_plan_title}}
                                 </div>
                                 <div class="w-1/2 flex justify-end">
-                                    $365
+                                    ${{$service->basic_plan_price}}
                                 </div>
                             </div>
                             <div class="flex mt-5 px-5">
                                 <div class="w-80 text-justify">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
+                                {{$service->basic_plan_description}}
                                 </div>
                             </div>
                                         
                             <div class="mt-2 px-5 flex">
                                 <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                 <div class="ml-3">
-                                    4 days delivery
+                                {{$service->basic_plan_days}} days delivery
                                 </div>
                             </div>
-                            <div class="flex place-content-center mt-5">
-                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
-                                    Continue
-                                </button>
-                            </div>
-                            
+                            <form action="{{ route('store.transaction', ['id' => $service->id, 'package' => 'basic']) }}" method="POST">
+                            @csrf
+                                <div class="flex place-content-center mt-5">
+                                    <button type="submit" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                        Continue
+                                    </button>
+                                </div>
+                            </form>
                         
                         </div>
                         <div class="tab-content hidden" id="standardContent">
                         <div class="flex px-5 font-semibold">
                                 <div class="w-1/2">
-                                    Standard Plan Title
+                                {{$service->standard_plan_title}}
                                 </div>
                                 <div class="w-1/2 flex justify-end">
-                                    $365
+                                ${{$service->standard_plan_price}}   
                                 </div>
                             </div>
                             <div class="flex mt-5 px-5">
                                 <div class="w-80 text-justify">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
-                                </div>
+                                {{$service->standard_plan_description}}                                
+                            </div>
                             </div>
                                         
                             <div class="mt-2 px-5 flex">
                                 <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                 <div class="ml-3">
-                                    4 days delivery
+                                {{$service->standard_plan_days}} days delivery
                                 </div>
                             </div>
-                            <div class="flex place-content-center mt-5">
-                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
-                                    Continue
-                                </button>
-                            </div>
-                            
+                            <form action="{{ route('store.transaction', ['id' => $service->id, 'package' => 'standard']) }}" method="POST">
+                            @csrf
+                                <div class="flex place-content-center mt-5">
+                                    <button type="submit" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                        Continue
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                         <div class="tab-content hidden" id="premiumContent">
                         <div class="flex px-5 font-semibold">
                                 <div class="w-1/2">
-                                    Premium Plan Title
+                                {{$service->premium_plan_title}}
                                 </div>
                                 <div class="w-1/2 flex justify-end">
-                                    $365
+                                ${{$service->premium_plan_price}}  
                                 </div>
                             </div>
                             <div class="flex mt-5 px-5">
                                 <div class="w-80 text-justify">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore facere assumenda est earum, neque aut veritatis ullam accusantium eligendi fuga corrupti praesentium itaque veniam inventore deleniti vel iste qui hic?
-                                </div>
+                                {{$service->premium_plan_description}}                                 
+                            </div>
                             </div>
                                         
                             <div class="mt-2 px-5 flex">
                                 <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                 <div class="ml-3">
-                                    4 days delivery
+                                {{$service->premium_plan_days}} days delivery
                                 </div>
                             </div>
-                            <div class="flex place-content-center mt-5">
-                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
-                                    Continue
-                                </button>
-                            </div>
-                            
+                            <form action="{{ route('store.transaction', ['id' => $service->id, 'package' => 'premium']) }}" method="POST">
+                            @csrf
+                                <div class="flex place-content-center mt-5">
+                                    <button type="submit" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-sm text-sm px-36 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2 mb-2">
+                                        Continue
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

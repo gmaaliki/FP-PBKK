@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\UserSkill;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [ServiceController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
+
+
+// Route for handling the transaction
+Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 'storeTransaction'])
+    ->name('store.transaction');
 
 
 

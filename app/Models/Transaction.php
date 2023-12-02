@@ -10,8 +10,10 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Quantity',
-        'Status',
+        'quantity',
+        'status',
+        'package',
+        'service_id',
     ];
 
     function user () {

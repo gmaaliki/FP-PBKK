@@ -16,6 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('quantity')->unsigned();
             $table->string('status');
+            $table->string('package');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('service_id')->constrained();
         });

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Models\User;
 use App\Http\Requests\StoreTransactionRequest;
 use App\Http\Requests\UpdateTransactionRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -27,9 +29,21 @@ class TransactionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTransactionRequest $request)
+    public function storeTransaction($id, $package)
     {
-        //
+        $user = Auth::user();
+
+        // Your code to perform the transaction goes here
+        // Example:
+        $user->transaction()->create([
+            'quantity' => 1,
+            'status' => "pending",
+            'package' => $package,
+            'user_id' => $user->id,
+            'service_id' => $id,
+        ]);
+
+        return response()->json(['message' => 'Transaction successfully completed']);
     }
 
     /**
