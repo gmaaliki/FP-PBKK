@@ -37,6 +37,14 @@ Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.
 Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 'storeTransaction'])
     ->name('store.transaction');
 
+Route::get('/my_order', [TransactionController::class, 'index'])->name('get.myorder');
+
+Route::get('/manage_order', [TransactionController::class, 'manage'])->name('get.sellorder');
+
+// Route::get('/my_order', function(){
+//     return view('my_order');
+// })->name('myorder');
+
 
 
 Route::middleware('auth')->group(function () {
@@ -58,9 +66,11 @@ Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
-Route::get('/manage_order', function(){
-    return view('manage_order');
-});
+// Route::get('/manage_order', function(){
+//     return view('manage_order');
+// });
+
+
 
 Route::get('/wishlist', function(){
     return view('wishlist');

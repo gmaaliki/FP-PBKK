@@ -120,6 +120,16 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
+                        <x-dropdown-link :href="route('get.myorder')">
+                            {{ __('My Orders') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('get.sellorder')">
+                            {{ __('Manage Selling Order') }}
+                        </x-dropdown-link>
+
+               
+
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Setting') }}
                         </x-dropdown-link>
