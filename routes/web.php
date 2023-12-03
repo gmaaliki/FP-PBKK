@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\UserSkill;
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,9 +43,8 @@ Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
-Route::get('/addgigs', function(){
-    return view('addgigs');
-});
+Route::get('/create-gigs/{user_id}', [ServiceController::class, 'create'])->name('service.create');
+Route::post('/create-gigs/{user_id}', [ServiceController::class,'store'])->name('service.store');
 
 Route::get('/manage_order', function(){
     return view('manage_order');

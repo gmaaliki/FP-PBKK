@@ -21,12 +21,12 @@
             <div class=" border-gray-200 bg-white border p-6 mt-3">
                 <div class="w-full flex">
                     <div class="w-1/3">
-                            <div class="font-bold">
-                                {{ __("Gig title") }}
-                            </div>
-                            <div class="mt-2 w-4/5">
-                                {{ __("As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.") }}
-                            </div>  
+                        <div class="font-bold">
+                            {{ __("Gig title") }}
+                        </div>
+                        <div class="mt-2 w-4/5">
+                            {{ __("As your Gig storefront, your title is the most important place to include keywords that buyers would likely use to search for a service like yours.") }}
+                        </div>  
                     </div>
                     <div class="w-2/3">
                         <div class="col-span-full">
@@ -300,13 +300,11 @@
                 </div>
             </div>
             
-
-            
             <div class="mt-24 mb-5 w-full flex justify-end">
-                <button type="submit" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  dark:hover:bg-green-700 dark:focus:ring-green-800">{{ __("Publish Gig") }}</button>
+                <button type="submit" class="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  dark:hover:bg-green-700 dark:focus:ring-green-800">
+                    {{ __("Publish Gig") }}
+                </button>
             </div>
-
-        </div>
     </form>
 </div>
 

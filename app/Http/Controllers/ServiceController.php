@@ -21,7 +21,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view("addgigs");
     }
 
     /**
@@ -29,7 +29,7 @@ class ServiceController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        //
+        dd($request);
     }
 
     /**

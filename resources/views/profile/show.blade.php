@@ -42,9 +42,15 @@
                                     <a href="">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
+                            <div class="flex">
                                 <!-- Add blade template logic to show from database -->
-                                <p>English</p>
+                                <div class="w-1/2 text-left">
+                                    <p>English</p>
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    <a href=""><x-edit-icon/></a>
+                                    <a href=""><x-delete-icon/></a>
+                                </div>
                             </div>
                         </div>
                         <div class="flex-col align-center my-5">
@@ -56,9 +62,14 @@
                                     <a href="">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
-                                <!-- Add blade template logic to show from database -->
-                                <p>Gardening</p>
+                            <div class="flex">
+                                <div class="w-1/2 text-left">
+                                    <p>Gardening</p>
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    <a href=""><x-edit-icon/></a>
+                                    <a href=""><x-delete-icon/></a>
+                                </div>
                             </div>
                         </div>
                         <div class="flex-col align-center my-5">
@@ -70,9 +81,15 @@
                                     <a href="">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
+                            <div class="flex">
                                 <!-- Add blade template logic to show from database -->
-                                <p>High School</p>
+                                <div class="w-1/2 text-left">
+                                    <p>High School</p>
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    <a href=""><x-edit-icon/></a>
+                                    <a href=""><x-delete-icon/></a>
+                                </div>
                             </div>
                         </div>
                         <div class="flex-col align-center my-5">
@@ -84,9 +101,15 @@
                                     <a href="">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
+                            <div class="flex">
                                 <!-- Add blade template logic to show from database -->
-                                <p>World's best gardener</p>
+                                <div class="w-1/2 text-left">
+                                    <p>World's best gardener</p>
+                                </div>
+                                <div class="w-1/2 flex justify-end">
+                                    <a href=""><x-edit-icon/></a>
+                                    <a href=""><x-delete-icon/></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -96,15 +119,17 @@
                     
         
 
-                <div class="flex-col w-3/5 m-8 bg-white">
+                <div class="flex-col w-3/5 m-8 bg-white border border-gray-300">
                     <div class="flex justify-center align-middle font-semibold text-3xl p-4">
                         <div>
                         {{ __("Gigs list") }}
                         </div>
                         
-                        <x-primary-button class="ml-5">
-                            {{ __("Add gig") }}
-                        </x-primary-button>
+                        <a href="{{ route('service.create', ['user_id' => Auth::user()->id]) }}">
+                            <x-primary-button class="ml-5" >
+                                {{ __("Add gig") }}
+                            </x-primary-button>
+                        </a>
                     </div>
                 </div>
 
