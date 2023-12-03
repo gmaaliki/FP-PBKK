@@ -19,14 +19,21 @@ class TransactionFactory extends Factory
 
         $status = [
             'Cancelled',
-            'Pendiing',
+            'Pending',
             'On Hold',
             'Success',
+        ];
+
+        $package = [
+            'basic',
+            'standard',
+            'premium',
         ];
         
         return [
             'quantity' => fake()->numberBetween(1,10),
             'status' => fake()->randomElement($status),
+            'package' => fake()->randomElement($package),
             'user_id' => fake()->numberBetween(1,100),
             'service_id' => fake()->numberBetween(1,150),
         ];
