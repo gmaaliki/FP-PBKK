@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\UserLanguage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;    
 
 class UserLanguageController extends Controller
 {
@@ -20,23 +21,32 @@ class UserLanguageController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    // public function create()
-    // {
-    //     return view('user_languages.create');
-    // }
+    public function create()
+    {
+        return view('language.create');
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $request->validate([
             'language' => 'required|string|max:255',
             'language_level' => 'required|string|max:255',
         ]);
 
-        UserLanguage::create($request->all());
-        return redirect('/');
+        $data = [
+            'language' => $request->input('language'),
+            'language_level' => $request->input('language_level'),
+        ];
+
+        $user->userlanguage()->create($data);        
+
+        $successMessage = "User language successfully added";
+
+        return redirect()->route('profile.show')->with('success', $successMessage);
     }
 
     /**

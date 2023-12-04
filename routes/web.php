@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserLanguageController;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\User;
@@ -43,8 +44,14 @@ Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
-Route::get('/create-gigs/{user_id}', [ServiceController::class, 'create'])->name('service.create');
-Route::post('/create-gigs/{user_id}', [ServiceController::class,'store'])->name('service.store');
+Route::get('/gigs', [ServiceController::class, 'create'])->name('service.create');
+Route::post('/gigs', [ServiceController::class,'store'])->name('service.store');
+
+Route::get('/language', [UserLanguageController::class, 'create'])->name('language.create');
+Route::post('/language', [UserLanguageController::class, 'store'])->name('language.store');
+Route::get('/language/{language}/edit', [UserLanguageController::class, 'edit'])->name('language.edit');
+Route::patch('/language/{language}/edit', [UserLanguageController::class, 'update'])->name('language.update');
+// Route::patch('/');
 
 Route::get('/manage_order', function(){
     return view('manage_order');

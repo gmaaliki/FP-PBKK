@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+// use App\Models\UserLanguage;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -17,8 +19,17 @@ class ProfileController extends Controller
      */
     public function show(Request $request) :View
     {
+        $user_id = Auth::user()->id;
+        $languages = User::find($user_id)->userlanguage()->get();
+        $skills = User::find($user_id)->userskill()->get();
+        $educations = User::find($user_id)->usereducation()->get();
+        $certifications = User::find($user_id)->usercertification()->get();
         return view('profile.show', [
             'user' => $request->user(),
+            'languages' => $languages,
+            'skills' => $skills,
+            'educations' => $educations,
+            'certifications' => $certifications,
         ]);
     }
 

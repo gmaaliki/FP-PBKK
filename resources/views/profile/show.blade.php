@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if(session('success'))
+        <div class="flex items-center justify-center w-full h-8 py-auto bg-green-300 font-semibold">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -39,19 +44,22 @@
                                     <h3>Languages</h3>
                                 </div>
                                 <div class="w-1/2 text-right">
-                                    <a href="">{{ __("Add new+")}}</a>
+                                    <a href="{{ route('language.create', ['id' => Auth::user()->id]) }} ">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div class="flex">
-                                <!-- Add blade template logic to show from database -->
-                                <div class="w-1/2 text-left">
-                                    <p>English</p>
+                            @foreach($languages as $language)
+                                <div class="flex my-5">
+                                    <!-- Add blade template logic to show from database -->
+                                        <div class="w-1/2 flex text-left">
+                                            <p>{{ $language->language }}</p>
+                                            <p class="text-gray-600 italic">|{{ $language->language_level }}</p>
+                                        </div>
+                                        <div class="w-1/2 flex justify-end">
+                                            <a href=""><x-edit-icon/></a>
+                                            <a href=""><x-delete-icon/></a>
+                                        </div>
                                 </div>
-                                <div class="w-1/2 flex justify-end">
-                                    <a href=""><x-edit-icon/></a>
-                                    <a href=""><x-delete-icon/></a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="flex-col align-center my-5">
                             <div class="flex font-semibold">
@@ -125,7 +133,7 @@
                         {{ __("Gigs list") }}
                         </div>
                         
-                        <a href="{{ route('service.create', ['user_id' => Auth::user()->id]) }}">
+                        <a href="{{ route('service.create') }}">
                             <x-primary-button class="ml-5" >
                                 {{ __("Add gig") }}
                             </x-primary-button>
