@@ -2,7 +2,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet"/>
 
     <div class=" bg-white">
-        <div class="bg-white py-8 w-9/12 mx-auto font-semibold text-3xl text-gray-800 leading-tight">
+        <div class="bg-white py-8 w-330 mx-auto font-semibold text-3xl text-gray-800 leading-tight">
             Welcome back, {{ Auth::user()->name }}!
         </div>
 
@@ -33,14 +33,14 @@
             </div>
         </div> -->
 
-        <div class="bg-white mt-4 w-9/12 mx-auto font-semibold text-2xl text-gray-800 leading-tight flex">
+        <div class="bg-white mt-4 w-330 mx-auto font-semibold text-2xl text-gray-800 leading-tight flex">
             Most popular Gigs in  
             <div class="ml-1 text-blue-600">
                 Website Development 
             </div>
         </div>
 
-            <div id="default-carousel" class="relative w-9/12 mx-auto py-4" data-carousel="static">
+            <div id="default-carousel" class="relative w-330 mx-auto py-4" data-carousel="static">
                         <!-- Carousel wrapper -->
                         <div class="relative h-56 overflow-hidden rounded-lg md:h-96 border border-gray-300">
                             <!-- Item 1 -->
@@ -51,8 +51,8 @@
                             
                             <!-- Butuh lebih banyak data untuk bisa bekerja -->
                             @for ($i = 0; $i < 5; $i++) 
-                            <div class="w-64 h-90">
-                                <div id="" class="relative w-full h-52">
+                            <div class="w-60 h-90">
+                                <div id="" class="relative w-full h-10">
                                     <!-- Carousel wrapper -->
                                         <div class="relative overflow-hidden rounded-lg md:h-52">
                                             <!-- Item 1 -->
