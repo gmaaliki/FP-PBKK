@@ -17,7 +17,7 @@ class ServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(),
+            'title' => fake()->text(30),
             'description' => fake()->text(),
             'basic_plan_title' => fake()->sentence(2),
             'basic_plan_price' => 10,
@@ -32,7 +32,7 @@ class ServiceFactory extends Factory
             'premium_plan_description' => fake()->text(50),
             'premium_plan_days' => 21,
             'user_id' => fake()->numberBetween(1,100),
-            'subcategory_id' => fake()->numberBetween(1,50),
+            'subcategory_id' => fake()->numberBetween(1,18),
         ];
     }
 }

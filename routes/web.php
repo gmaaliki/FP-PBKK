@@ -4,13 +4,14 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\User;
 use App\Models\UserSkill;
-
 use App\Http\Controllers\UserLanguageController;
 use App\Http\Controllers\UserSkillController;
 use App\Http\Controllers\UserEducationController;
 use App\Http\Controllers\UserCertificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,9 +29,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [ServiceController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/services/{id}/{user_id}', [ServiceController::class, 'show'])->name('service.show');
+
+
+Route::post('/searchfilter', [ServiceController::class, 'filter'])->name('service.filter');
+
+// Route for handling the transaction
+Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 'storeTransaction'])
+    ->name('store.transaction');
+
+
+Route::get('/subcategory/{subcategory}/{budgetLower}/{budgetUpper}/{time}', [SubcategoryController::class, 'index'])->name('subcategory.show');
+Route::get('/my_order', [TransactionController::class, 'index'])->name('get.myorder');
+
+Route::get('/manage_order', [TransactionController::class, 'manage'])->name('get.sellorder');
+
+// Route::get('/my_order', function(){
+//     return view('my_order');
+// })->name('myorder');
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
@@ -39,9 +64,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/gigs', function(){
-    return view('gigs');
-});
+// Route::get('/gigs', function(){
+//     return view('gigs');
+// });
 
 Route::get('/addgigs', function(){
     return view('addgigs');
@@ -74,13 +99,28 @@ Route::get('/certification/{id_certification}/edit', [UserCertificationControlle
 Route::patch('/certification/{id_certification}/edit', [UserCertificationController::class, 'update'])->name('certification.update');
 Route::delete('/certification/{id_certification}/delete', [UserCertificationController::class, 'destroy'])->name('certification.destroy');
 
-Route::get('/manage_order', function(){
-    return view('manage_order');
-});
+// Route::get('/addgigs', function(){
+//     return view('addgigs');
+// });
+
+// Route::get('/manage_order', function(){
+//     return view('manage_order');
+// });
+
+
 
 Route::get('/wishlist', function(){
     return view('wishlist');
 });
+
+// Route::get('/searchfilter', function(){
+//     return view('searchfilter');
+// });
+
+
+// Route::get('/subcategory', function(){
+//     return view('subcategory');
+// });
 
 Route::get('/test-relationships', function () {
     // Create a category

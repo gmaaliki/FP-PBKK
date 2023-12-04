@@ -21,7 +21,7 @@
         <div class="w-4/5 min-h-800">
 
                 <div class="text-4xl">
-                    Manage Orders
+                    My Orders
                 </div>
                 <div class="">
                 <div class="">

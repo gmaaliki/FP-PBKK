@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="https://www.svgrepo.com/show/396909/letter-s.svg" alt="Sixerr Logo" height="100px" width="100px"/>
                 </a>
             </div>
 

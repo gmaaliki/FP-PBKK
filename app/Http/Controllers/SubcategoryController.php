@@ -7,6 +7,24 @@ use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
 {
+    public function index($subcategory, $budgetLower, $budgetUpper, $time)
+    {
+        // Find the Subcategory by name or another identifier
+        $subcategoryModel = Subcategory::where('subcategory_name', $subcategory)->first();
+        //dd($subcategoryModel);
+        // Check if the subcategory exists
+        if (!$subcategoryModel) {
+            abort(404); // Or handle the case when the subcategory is not found
+        }
+
+        // Get all services related to the subcategory
+        $services = $subcategoryModel->service()->get();
+
+        //dd($services);
+        // Pass the services to the view
+        return view('subcategory', compact('subcategoryModel', 'services', 'budgetLower', 'budgetUpper', 'time'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
