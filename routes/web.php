@@ -7,6 +7,7 @@ use App\Models\UserSkill;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\SubcategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,7 @@ Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.
 Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 'storeTransaction'])
     ->name('store.transaction');
 
+    Route::get('/subcategory/{subcategory}/{budget}/{time}', [SubcategoryController::class, 'index'])->name('subcategory.show');
 
 
 Route::middleware('auth')->group(function () {

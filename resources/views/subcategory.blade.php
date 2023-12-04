@@ -13,17 +13,11 @@
 
     <div class="flex items-center justify-center bg-white">
             <div class="w-4/5 min-h-800">
-                <div class="flex items-center mt-10">
-                        <svg class="h-4 w-4 text-black"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                        </svg>
-                        / Graphics & Design
-                </div>
-                <div class="mt-5 text-3xl font-bold">
-                    Logo Design
+                <div class="mt-10 text-3xl font-bold">
+                    {{$subcategoryModel->subcategory_name}}
                 </div>
                 <div class="mt-5 text-xl">
-                    Every gigs in the subcategory logo design
+                    Every gigs in the subcategory
                 </div>
 
                 <div class="mt-10 border border-t-gray-300 w-full">
@@ -46,14 +40,17 @@
                             <div class="flex items-center">
                                 <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2">
                                 <label for="default-radio-1" class="ms-2 text-base font-bold">Value</label>
+                                <div class="ml-5">Under $50</div>
                             </div>
                             <div class="flex items-center mt-2">
                                 <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
                                 <label for="default-radio-2" class="ms-2 text-base font-bold ">Mid-range</label>
+                                <div class="ml-5">$50 - $90</div>
                             </div>
                             <div class="flex items-center mt-2">
                                 <input checked id="default-radio-3" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
                                 <label for="default-radio-3" class="ms-2 text-base font-bold ">High-end</label>
+                                <div class="ml-5">$90 & Above</div>
                             </div>
                             <div class="mt-2">
                                 <button>
@@ -157,5 +154,41 @@
             customInput.disabled = !document.getElementById('default-radio-4').checked;
         });
     });
+
+
+    // const applyButton = document.querySelector('#applyButton');
+    // const budgetContent = document.getElementById('budgetContent');
+    // const deliveryContent = document.getElementById('deliveryContent');
+
+    // applyButton.addEventListener('click', function () {
+    //     // Get selected budget and delivery options
+    //     const selectedBudget = document.querySelector('input[name="budget"]:checked').value;
+    //     const selectedDelivery = document.querySelector('input[name="delivery"]:checked').value;
+
+    //     // Call an API or perform AJAX request to fetch filtered services based on selected options
+    //     // For simplicity, I'll just filter services client-side here
+    //     const filteredServices = services.filter(function (service) {
+    //         return (
+    //             (selectedBudget === 'any' || service.budget === selectedBudget) &&
+    //             (selectedDelivery === 'any' || service.delivery === selectedDelivery)
+    //         );
+    //     });
+
+    //     // Update the displayed services with filtered services
+    //     updateDisplayedServices(filteredServices);
+    // });
+
+    // function updateDisplayedServices(services) {
+    //     // Clear existing services
+    //     const servicesContainer = document.querySelector('#servicesContainer');
+    //     servicesContainer.innerHTML = '';
+
+    //     // Display filtered services
+    //     services.forEach(function (service) {
+    //         const serviceElement = document.createElement('div');
+    //         serviceElement.textContent = service.service_name;
+    //         servicesContainer.appendChild(serviceElement);
+    //     });
+    // }
 </script>
 </x-app-layout>
