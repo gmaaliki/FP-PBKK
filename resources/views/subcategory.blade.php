@@ -13,17 +13,11 @@
 
     <div class="flex items-center justify-center bg-white">
             <div class="w-4/5 min-h-800">
-                <div class="flex items-center mt-10">
-                        <svg class="h-4 w-4 text-black"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                        </svg>
-                        / Graphics & Design
-                </div>
-                <div class="mt-5 text-3xl font-bold">
-                    Logo Design
+                <div class="mt-10 text-3xl font-bold">
+                    {{$subcategoryModel->subcategory_name}}
                 </div>
                 <div class="mt-5 text-xl">
-                    Every gigs in the subcategory logo design
+                    Every gigs in the subcategory
                 </div>
 
                 <div class="mt-10 border border-t-gray-300 w-full">
@@ -42,59 +36,144 @@
                         </div>
                     </div>
                 
-                        <div class="tab-content hidden mt-2 rounded-lg border border-gray-300 p-5 w-64" id="budgetContent">   
+                        <div class="tab-content hidden mt-2 rounded-lg border border-gray-300 p-5 w-64" id="budgetContent" data-subcategory="{{ $subcategoryModel->subcategory_name }}">   
+                            <input id="budgetValue" name="budgetHidden" class="hidden" value="{{$budgetLower}}-{{$budgetUpper}}">
+                            <!-- <div id="budgetValue" class="hidden" data-subcategory="{{$budgetLower}}-{{$budgetUpper}}"></div> -->
+
                             <div class="flex items-center">
-                                <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2">
+                                <input id="default-radio-1" type="radio" value="0-50" name="budget-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2">
                                 <label for="default-radio-1" class="ms-2 text-base font-bold">Value</label>
+                                <div class="ml-5">Under $50</div>
                             </div>
                             <div class="flex items-center mt-2">
-                                <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
+                                <input checked id="default-radio-2" type="radio" value="50-90" name="budget-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
                                 <label for="default-radio-2" class="ms-2 text-base font-bold ">Mid-range</label>
+                                <div class="ml-5">$50 - $90</div>
                             </div>
                             <div class="flex items-center mt-2">
-                                <input checked id="default-radio-3" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
+                                <input checked id="default-radio-3" type="radio" value="90-999" name="budget-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
                                 <label for="default-radio-3" class="ms-2 text-base font-bold ">High-end</label>
-                            </div>
-                            <div class="mt-2">
-                                <button>
-                                    <div class="flex items-center">
-                                        <input checked id="default-radio-4" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
-                                        <label for="default-radio-4" class="ms-2 text-base font-bold ">Custom</label>
-                                    </div>   
-                                    <div class="ml-6 mt-2 border border-black">
-                                        <input type="number" name="custom" id="custom" autocomplete="custom" class="block border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                                    </div>
-                                </button>
+                                <div class="ml-5">$90 & Above</div>
                             </div>
 
                             <div class="mt-3 flex justify-center">
-                                <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-20 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30">
-                                    Apply
-                                </button>
-                            </div>
-
-                            
+                                <a href="#" onclick="applyFilters()" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">
+                                    <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-20 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30">
+                                        Apply
+                                    </button>
+                                </a>
+                            </div>          
                         </div>
 
                         <div class="ml-36 tab-content hidden mt-2 rounded-lg border border-gray-300 p-5 w-64" id="deliveryContent">
+                            <input id="timeHidden" name="timeHidden" class="hidden" value="{{$time}}">
                             <div class="flex items-center">
-                                <input id="default-radio-5" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2">
+                                <input id="default-radio-5" type="radio" value="1" name="time-radio"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2">
                                 <label for="default-radio-5" class="ms-2 text-base font-bold">Express 24H</label>
                             </div>
                             <div class="flex items-center mt-2">
-                                <input checked id="default-radio-6" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
+                                <input checked id="default-radio-6" type="radio" value="3" name="time-radio"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
                                 <label for="default-radio-6" class="ms-2 text-base font-bold ">Up to 3 days</label>
                             </div>
                             <div class="flex items-center mt-2">
-                                <input checked id="default-radio-7" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
+                                <input checked id="default-radio-7" type="radio"  value="7" name="time-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
                                 <label for="default-radio-7" class="ms-2 text-base font-bold ">Up to 7 days</label>
                             </div>
                             <div class="flex items-center mt-2">
-                                <input checked id="default-radio-8" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
+                                <input checked id="default-radio-8" type="radio" value="999" name="time-radio"  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 ">
                                 <label for="default-radio-8" class="ms-2 text-base font-bold ">Anytime</label>
                             </div>
+                            <div class="mt-3 flex justify-center">
+                                <a href="#" onclick="applyFiltersTime()" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">
+                                    <button type="button" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-md text-sm px-20 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30">
+                                        Apply
+                                    </button>
+                                </a>
+                            </div>
+
    
                         </div>
+
+                        <div class="w-full mt-4">
+
+                        @php
+                            $filteredServices = $services->filter(function ($service) use ($budgetLower, $budgetUpper, $time) {
+                                return $service->basic_plan_price >= $budgetLower
+                                    && $service->basic_plan_price <= $budgetUpper
+                                    && $service->basic_plan_days <= $time;
+                            });
+
+                            $servicesChunks = $filteredServices->chunk(5);
+                        @endphp
+
+
+
+                        @foreach($servicesChunks as $serviceChunk)                                    
+                            <div class="flex w-full mt-5 gap-5">
+                                @foreach($serviceChunk as $service)
+                            
+                            
+                                    <div class="w-56">
+                                            <div id="" class="relative w-56 h-52">
+                                            <!-- Carousel wrapper -->
+                                                <div class="relative overflow-hidden rounded-lg md:h-52">
+                                                    <!-- Item 1 -->
+                                                    <div>
+                                                    <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
+                                                        <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                                    </a>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+
+                                            <div class="mt-2 flex">
+                                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-7 w-7">
+                                                <div>
+                                                    <div class="ml-2 font-semibold text-base">
+                                                    {{ $service->username}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-1 text-lg">
+                                            <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none hover:underline">
+                                            {{ $service->title}}
+                                            </a>
+                                            </div>
+
+                                            <div class="mt-4 flex items-center">
+                                                <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z"/>
+                                                    <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
+                                                </svg>
+                                                <div class="ml-1">
+                                                    {{ number_format($service->avg_star_rating, 1) }}
+                                                </div>
+                                                <div class="ml-1">
+                                                    (
+                                                </div>
+                                                <div class="">
+                                                    {{ $service->total_reviews}}
+                                                </div>
+                                                <div>
+                                                    )
+                                                </div>
+                                            </div>
+
+                                            <div class="font-bold">
+                                                <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none hover:underline">
+                                                    From ${{ $service->basic_plan_price}}
+                                                    </a>
+                                            </div>
+                                        
+                                    </div>  
+                                    
+                                    @endforeach
+                                </div>
+                                
+                                @endforeach
+                            </div>
                    
                 </div>
             </div>
@@ -157,5 +236,55 @@
             customInput.disabled = !document.getElementById('default-radio-4').checked;
         });
     });
+
+
+    function applyFilters() {
+        // Get the selected radio button value
+        var selectedValue = document.querySelector('input[name="budget-radio"]:checked').value;
+
+        var timeValue = document.getElementById('timeHidden').value;
+
+        // Split the value to get lower and upper bounds
+        var [budgetLower, budgetUpper] = selectedValue.split('-');
+
+        var subcategoryName = document.getElementById('budgetContent').getAttribute('data-subcategory');
+
+
+        // Update the URL with the selected values
+        var url = "{{ route('subcategory.show', ['subcategory' => ':subcategory', 'budgetLower' => ':budgetLower', 'budgetUpper' => ':budgetUpper', 'time' => ':time']) }}";
+        url = url.replace(':subcategory', subcategoryName).replace(':budgetLower', budgetLower).replace(':budgetUpper', budgetUpper).replace(':time', timeValue);
+
+        // Redirect to the updated URL
+        window.location.href = url;
+    }
+
+    function applyFiltersTime() {
+        // Get the selected radio button value
+        var timeValue = document.querySelector('input[name="time-radio"]:checked').value;
+
+        console.log(timeValue);
+
+    
+
+        var budgetValue = document.getElementById('budgetValue').value;
+
+        // var budgetValue = document.getElementById('budgetValue').getAttribute('data-subcategory');
+
+        // console.log(budgetValue);
+
+        // Split the value to get lower and upper bounds
+        var [budgetLower, budgetUpper] = budgetValue.split('-');
+
+        var subcategoryName = document.getElementById('budgetContent').getAttribute('data-subcategory');
+
+
+        // Update the URL with the selected values
+        var url = "{{ route('subcategory.show', ['subcategory' => ':subcategory', 'budgetLower' => ':budgetLower', 'budgetUpper' => ':budgetUpper', 'time' => ':time']) }}";
+        url = url.replace(':subcategory', subcategoryName).replace(':budgetLower', budgetLower).replace(':budgetUpper', budgetUpper).replace(':time', timeValue);
+
+        console.log(url);
+        // Redirect to the updated URL
+        window.location.href = url;
+    }
 </script>
 </x-app-layout>

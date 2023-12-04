@@ -32,7 +32,7 @@ class ServiceFactory extends Factory
             'premium_plan_description' => fake()->text(50),
             'premium_plan_days' => 21,
             'user_id' => fake()->numberBetween(1,100),
-            'subcategory_id' => fake()->numberBetween(1,50),
+            'subcategory_id' => fake()->numberBetween(1,18),
         ];
     }
 }

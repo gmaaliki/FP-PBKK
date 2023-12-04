@@ -379,7 +379,7 @@
                                                 <div class="relative overflow-hidden rounded-lg md:h-52">
                                                     <!-- Item 1 -->
                                                     <div>
-                                                    <a href="{{ route('service.show', ['id' => $service->id]) }}" class="text-decoration-none">
+                                                    <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
                                                         <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                                                     </a>
                                                     </div>
@@ -397,7 +397,7 @@
                                             </div>
 
                                             <div class="mt-1 text-lg">
-                                            <a href="{{ route('service.show', ['id' => $service->id]) }}" class="text-decoration-none hover:underline">
+                                            <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none hover:underline">
                                             {{ $service->title}}
                                             </a>
                                             </div>
@@ -422,7 +422,7 @@
                                             </div>
 
                                             <div class="font-bold">
-                                                <a href="{{ route('service.show', ['id' => $service->id]) }}" class="text-decoration-none hover:underline">
+                                                <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none hover:underline">
                                                     From ${{ $service->basic_plan_price}}
                                                     </a>
                                             </div>

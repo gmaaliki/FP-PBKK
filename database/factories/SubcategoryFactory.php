@@ -19,7 +19,7 @@ class SubcategoryFactory extends Factory
     {
         return [
             'subcategory_name' => fake()->word(),  
-            'category_id' => fake()->numberBetween(1,5),
+            'category_id' => fake()->numberBetween(1,9),
         ];
     }
 }

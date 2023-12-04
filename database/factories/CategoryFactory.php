@@ -16,6 +16,12 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+        // static $order = ['Graphics & Design', 'Programming & Tech', 'Digital Marketing', 'd'];
+
+        // return [
+        //     'category_name' => array_shift($order),
+        // ];
+
         return [
             'category_name' => fake()->word(),  
         ];
