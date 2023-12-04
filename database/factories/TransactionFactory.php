@@ -35,6 +35,7 @@ class TransactionFactory extends Factory
             'package' => fake()->randomElement($package),
             'deliverable' => fake()->text(10),
             'user_id' => fake()->numberBetween(1,100),
+            'isReview' => fake()->randomElement([true, false]),
             'service_id' => fake()->numberBetween(1,150),
         ];
     }

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('star_rating');
             $table->string('review_description');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('service_id')->constrained('services'); // Assuming 'services' is your table name
             $table->timestamps();
         });
     }

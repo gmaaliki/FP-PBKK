@@ -173,20 +173,23 @@
                                 COMPLETED
                             </div>
                             <div class="w-full flex text-xs font-semibold">
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         NO
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         GIG
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         PACKAGE
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         PRICE
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         DELIVERABLE
+                                </div>
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
+                                        GIVE REVIEW
                                 </div>
 
                                 
@@ -194,27 +197,38 @@
                             @if(count($transactions->where('status', 'completed')) > 0)
                                 @foreach($transactions->where('status', 'completed') as $index => $transaction)
                                     <div class="w-full flex text-sm font-semibold">
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                             {{ $loop->iteration }} {{-- Adding 1 to start index from 1 instead of 0 --}}
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                         <a href="{{ route('service.show', ['id' => $transaction->service->id, 'user_id' => $transaction->service->user_id]) }}" class="text-decoration-none hover:underline">
                                             {{ $transaction->service->title }}
                                             </a>
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                             {{ $transaction->package }}
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                         @php
                                             $packagePrice = $transaction->service->{$transaction->package.'_plan_price'};
                                         @endphp
                                        ${{ $packagePrice }}
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                             <a href="{{ route('download.myorder', ['id' => $transaction->id]) }}" class="text-decoration-none hover:underline">
                                                 <button type="click" class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 ">Download</button>
                                             </a>
+                                        </div>
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
+                                            @if ($transaction->isReview == 0)
+                                                <a href="{{ route('review.show', ['id' => $transaction->service->id, 'transaction_id' => $transaction->id]) }}" class="text-decoration-none hover:underline">
+                                                    <button type="click" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-1">Rate</button>
+                                                </a>
+                                            @else
+                                                <div>
+                                                    Rated
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach

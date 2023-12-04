@@ -18,7 +18,9 @@ class TransactionController extends Controller
     {
         $user = Auth::user();
         $transactions = $user->transaction()->with('service')->get();
+
         return view('my_order', compact('transactions'));
+        
     }
 
     public function manage()
@@ -56,6 +58,7 @@ class TransactionController extends Controller
             'status' => "pending",
             'package' => $package,
             'deliverable' => "temp",
+            'isReview' => 0,
             'user_id' => $user->id,
             'service_id' => $id,
         ]);

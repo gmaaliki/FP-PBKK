@@ -14,10 +14,17 @@ class UserReview extends Model
     protected $fillable = [
         'star_rating',
         'review_description',
+        'user_id',
+        'service_id',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
     }
 }

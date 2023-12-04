@@ -414,7 +414,7 @@
                                                     <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
                                                 </svg>
                                                 <div class="ml-1">
-                                                    {{ number_format($service->avg_star_rating, 1) }}
+                                                    {{ $service->average_star}}
                                                 </div>
                                                 <div class="ml-1">
                                                     (

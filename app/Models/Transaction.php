@@ -15,6 +15,7 @@ class Transaction extends Model
         'package',
         'service_id',
         'deliverable',
+        'isReview',
     ];
 
     function user () {

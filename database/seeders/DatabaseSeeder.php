@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             UserNotificationSeeder::class,
-            UserReviewSeeder::class,
             UserSkillSeeder::class,
             UserLanguageSeeder::class,
             UserEducationSeeder::class,
@@ -23,6 +22,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             SubcategorySeeder::class,
             ServiceSeeder::class,
+            UserReviewSeeder::class,
             ServiceReportSeeder::class,
             ServicePictureSeeder::class,
             TransactionSeeder::class,
