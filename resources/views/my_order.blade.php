@@ -65,7 +65,7 @@
                                             {{ $loop->iteration }}
                                         </div>
                                         <div class="w-1/4 border border-gray-200 text-center py-2">
-                                        <a href="{{ route('service.show', ['id' => $transaction->service->id]) }}" class="text-decoration-none hover:underline">
+                                        <a href="{{ route('service.show', ['id' => $transaction->service->id, 'user_id' => $transaction->service->user_id]) }}" class="text-decoration-none hover:underline">
                                             {{ $transaction->service->title }}
                                             </a>
                                         </div>

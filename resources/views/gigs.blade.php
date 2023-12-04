@@ -1,4 +1,5 @@
 <x-app-layout>
+
 <style>
     /* Add your CSS styles here */
     .tab-content {
@@ -155,7 +156,7 @@
 
                     <div class="mt-12 border border-gray-300 w-full p-5">
                         <div>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, dolor voluptas voluptatum repudiandae, mollitia quidem soluta perferendis, beatae amet sunt et non voluptate odit alias quo. Natus aliquid consectetur soluta?
+                            {{ $service->description }}
                         </div>
                         <div class="flex border-t border-gray-300 mt-5 py-2 font-semibold">
                             <div class="w-1/2">
