@@ -11,11 +11,15 @@
 
             <!-- Search bar -->
             <div class="ml-5 w-4/5">
-                @csrf
                 <!-- routes to be added later -->
-                <form action="" method="GET">
-                    <x-text-input id="search_bar" name="search_bar" type="text" class="mt-1 block w-full" placeholder="What service are you looking for today?"/>
+                <form action="{{ route('service.filter') }}" method="POST" class="flex items-center justify-center">
+                @csrf
+                    <x-text-input id="search_bar" name="search_bar" type="text" class="mt-1 block w-11/12 " placeholder="What service are you looking for today?" />
+                    <button type="submit" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm w-1/12 px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 me-2">
+                        Search
+                    </button>
                 </form>
+
             </div>
             
             <!-- Notification icon -->
