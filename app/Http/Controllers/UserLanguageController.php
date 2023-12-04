@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\UserLanguage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;    
 
 class UserLanguageController extends Controller
 {
@@ -20,23 +21,32 @@ class UserLanguageController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    // public function create()
-    // {
-    //     return view('user_languages.create');
-    // }
+    public function create()
+    {
+        return view('language.create');
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         $request->validate([
             'language' => 'required|string|max:255',
             'language_level' => 'required|string|max:255',
         ]);
 
-        UserLanguage::create($request->all());
-        return redirect('/');
+        $data = [
+            'language' => $request->input('language'),
+            'language_level' => $request->input('language_level'),
+        ];
+
+        $user->userlanguage()->create($data);        
+
+        $successMessage = "User language successfully added";
+
+        return redirect()->route('profile.show')->with('success', $successMessage);
     }
 
     /**
@@ -50,10 +60,11 @@ class UserLanguageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    // public function edit(UserLanguage $userLanguage)
-    // {
-    //     return view('user_languages.edit', compact('userLanguage'));
-    // }
+    public function edit(Request $request)
+    {
+        $userLanguage = UserLanguage::find($request->id_language);
+        return view('language.edit', compact('userLanguage'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -64,15 +75,25 @@ class UserLanguageController extends Controller
             'language' => 'required|string|max:255',
             'language_level' => 'required|string|max:255',
         ]);
+        $userLanguage = UserLanguage::find($request->id_language);
 
-        $userLanguage->update($request->all());
+        $userLanguage->update([
+            'language' => $request->language,
+            'language_level' => $request->language_level,
+        ]);
+
+        $successMessage = "User language successfully edited";
+
+        return redirect()->route('profile.show')->with('success', $successMessage);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(UserLanguage $userLanguage)
+    public function destroy(Request $request)
     {
-        $userLanguage->delete();
+        UserLanguage::find($request->id_language)->delete();
+        $successMessage = "User language successfully deleted";
+        return back()->with('success', $successMessage);
     }
 }

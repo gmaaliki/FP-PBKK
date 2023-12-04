@@ -135,7 +135,7 @@
                
 
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Setting') }}
+                            {{ __('Account Setting') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -148,10 +148,6 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Post a request')}}
-                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </div>

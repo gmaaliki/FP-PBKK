@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if(session('success'))
+        <div class="flex items-center justify-center w-full h-8 py-auto bg-green-300 font-semibold">
+            {{ session('success') }}
+        </div>
+    @endif
 
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -39,13 +44,25 @@
                                     <h3>Languages</h3>
                                 </div>
                                 <div class="w-1/2 text-right">
-                                    <a href="">{{ __("Add new+")}}</a>
+                                    <a href="{{ route('language.create') }} ">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
-                                <!-- Add blade template logic to show from database -->
-                                <p>English</p>
-                            </div>
+                            @foreach($languages as $language)
+                                <div class="flex my-2">
+                                        <div class="w-1/2 flex text-left">
+                                            <p>{{ $language->language }}</p>
+                                            <p class="text-gray-600 italic">|{{ $language->language_level }}</p>
+                                        </div>
+                                        <div class="w-1/2 flex justify-end">
+                                            <a href=" {{ route('language.edit', ['id_language' => $language->id]) }}"><x-edit-icon/></a>
+                                            <form method="POST" action="{{ route('language.destroy', ['id_language' => $language->id]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"><x-delete-icon/></a>
+                                            </form>
+                                        </div>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="flex-col align-center my-5">
                             <div class="flex font-semibold">
@@ -53,13 +70,25 @@
                                     <h3>Skills</h3>
                                 </div>
                                 <div class="w-1/2 text-right">
-                                    <a href="">{{ __("Add new+")}}</a>
+                                    <a href="{{ route('skill.create') }}">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
-                                <!-- Add blade template logic to show from database -->
-                                <p>Gardening</p>
-                            </div>
+                            @foreach($skills as $skill)
+                                <div class="flex my-2">
+                                        <div class="w-1/2 flex text-left">
+                                            <p>{{ $skill->skill }}</p>
+                                            <p class="text-gray-600 italic">|{{ $skill->experience_level }}</p>
+                                        </div>
+                                        <div class="w-1/2 flex justify-end">
+                                            <a href=" {{ route('skill.edit', ['id_skill' => $skill->id]) }}"><x-edit-icon/></a>
+                                            <form method="POST" action="{{ route('skill.destroy', ['id_skill' => $skill->id]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"><x-delete-icon/></a>
+                                            </form>
+                                        </div>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="flex-col align-center my-5">
                             <div class="flex font-semibold">
@@ -67,13 +96,25 @@
                                     <h3>Education</h3>
                                 </div>
                                 <div class="w-1/2 text-right">
-                                    <a href="">{{ __("Add new+")}}</a>
+                                    <a href="{{ route('education.create') }}">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
-                                <!-- Add blade template logic to show from database -->
-                                <p>High School</p>
-                            </div>
+                            @foreach($educations as $education)
+                                <div class="flex my-2">
+                                        <div class="w-1/2 flex text-left">
+                                            <p>{{ $education->major }}</p>
+                                            <p class="text-gray-600 italic">|{{ $education->title }}</p>
+                                        </div>
+                                        <div class="w-1/2 flex justify-end">
+                                            <a href=" {{ route('education.edit', ['id_education' => $education->id]) }}"><x-edit-icon/></a>
+                                            <form method="POST" action="{{ route('education.destroy', ['id_education' => $education->id]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"><x-delete-icon/></a>
+                                            </form>
+                                        </div>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="flex-col align-center my-5">
                             <div class="flex font-semibold">
@@ -81,13 +122,25 @@
                                     <h3>Certification</h3>
                                 </div>
                                 <div class="w-1/2 text-right">
-                                    <a href="">{{ __("Add new+")}}</a>
+                                    <a href="{{ route('certification.create') }}">{{ __("Add new+")}}</a>
                                 </div>
                             </div>
-                            <div>
-                                <!-- Add blade template logic to show from database -->
-                                <p>World's best gardener</p>
-                            </div>
+                            @foreach($certifications as $certification)
+                                <div class="flex my-2">
+                                        <div class="w-1/2 flex text-left">
+                                            <p>{{ $certification->certificate_name }}</p>
+                                            <p class="text-gray-600 italic">|{{ $certification->certification_from }}</p>
+                                        </div>
+                                        <div class="w-1/2 flex justify-end">
+                                            <a href=" {{ route('certification.edit', ['id_certification' => $certification->id]) }}"><x-edit-icon/></a>
+                                            <form method="POST" action="{{ route('certification.destroy', ['id_certification' => $certification->id]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"><x-delete-icon/></a>
+                                            </form>
+                                        </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
@@ -96,15 +149,17 @@
                     
         
 
-                <div class="flex-col w-3/5 m-8 bg-white">
+                <div class="flex-col w-3/5 m-8 bg-white border border-gray-300">
                     <div class="flex justify-center align-middle font-semibold text-3xl p-4">
                         <div>
                         {{ __("Gigs list") }}
                         </div>
                         
-                        <x-primary-button class="ml-5">
-                            {{ __("Add gig") }}
-                        </x-primary-button>
+                        <a href="{{ route('service.create') }}">
+                            <x-primary-button class="ml-5" >
+                                {{ __("Add gig") }}
+                            </x-primary-button>
+                        </a>
                     </div>
                 </div>
 
