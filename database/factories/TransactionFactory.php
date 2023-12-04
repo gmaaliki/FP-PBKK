@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Factories;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -34,6 +33,7 @@ class TransactionFactory extends Factory
             'quantity' => fake()->numberBetween(1,10),
             'status' => fake()->randomElement($status),
             'package' => fake()->randomElement($package),
+            'deliverable' => fake()->text(10),
             'user_id' => fake()->numberBetween(1,100),
             'service_id' => fake()->numberBetween(1,150),
         ];

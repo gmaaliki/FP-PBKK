@@ -47,8 +47,13 @@ Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 
 
 Route::get('/subcategory/{subcategory}/{budgetLower}/{budgetUpper}/{time}', [SubcategoryController::class, 'index'])->name('subcategory.show');
 Route::get('/my_order', [TransactionController::class, 'index'])->name('get.myorder');
+Route::patch('/my_order/edit/{id}/{status}', [TransactionController::class, 'update_my_order'])->name('update.myorder');
+Route::get('/my_order/download/{id}', [TransactionController::class, 'download'])->name('download.myorder');
+
 
 Route::get('/manage_order', [TransactionController::class, 'manage'])->name('get.sellorder');
+Route::patch('/manage_order/edit/{id}/{status}', [TransactionController::class, 'update'])->name('update.sellorder');
+Route::patch('/manage_order/complete/{id}/{status}', [TransactionController::class, 'complete'])->name('complete.sellorder');
 
 // Route::get('/my_order', function(){
 //     return view('my_order');

@@ -1,4 +1,9 @@
 <x-app-layout>
+@if(session('success'))
+        <div class="flex items-center justify-center w-full h-8 py-auto bg-green-300 font-semibold">
+            {{ session('success') }}
+        </div>
+    @endif
 
 <style>
     /* Add your CSS styles here */
