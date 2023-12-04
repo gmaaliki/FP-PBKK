@@ -1,4 +1,9 @@
 <x-app-layout>
+@if(session('success'))
+        <div class="flex items-center justify-center w-full h-8 py-auto bg-green-300 font-semibold">
+            {{ session('success') }}
+        </div>
+    @endif
 
 <style>
     /* Add your CSS styles here */
@@ -45,38 +50,62 @@
                                 PENDING ORDERS
                             </div>
                             <div class="w-full flex text-sm font-semibold">
-                                <div class="w-1/4 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         NO
                                 </div>
-                                <div class="w-1/4 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
+                                        BUYER
+                                </div>
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         GIG
                                 </div>
-                                <div class="w-1/4 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         PACKAGE
                                 </div>
-                                <div class="w-1/4 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         PRICE
+                                </div>
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
+                                        ACCEPT/DECLINE
                                 </div>
                             </div>
                             @if(count($transactions->where('status', 'pending')) > 0)
                                 @foreach($transactions->where('status', 'pending') as $index => $transaction)
                                     <div class="w-full flex text-sm font-semibold">
-                                        <div class="w-1/4 border border-gray-200 text-center py-2">
+                                        <div class="w-1/5 border border-gray-200 text-center py-2">
                                             {{ $loop->iteration }}
                                         </div>
-                                        <div class="w-1/4 border border-gray-200 text-center py-2">
-                                        <a href="{{ route('service.show', ['id' => $transaction->service->id]) }}" class="text-decoration-none hover:underline">
+                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                            {{$transaction->user_name}}
+                                        </div>
+                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <a href="{{ route('service.show', ['id' => $transaction->service->id, 'user_id' => $transaction->service->user_id]) }}" class="text-decoration-none hover:underline">
                                             {{ $transaction->service->title }}
                                             </a>
                                         </div>
-                                        <div class="w-1/4 border border-gray-200 text-center py-2">
+                                        <div class="w-1/5 border border-gray-200 text-center py-2">
                                             {{ $transaction->package }}
                                         </div>
-                                        <div class="w-1/4 border border-gray-200 text-center py-2">
+                                        <div class="w-1/5 border border-gray-200 text-center py-2">
                                         @php
                                             $packagePrice = $transaction->service->{$transaction->package.'_plan_price'};
                                         @endphp
                                        ${{ $packagePrice }}
+                                        </div>
+                                        <div class="w-1/5 border border-gray-200 text-center py-2 flex justify-center">
+                                            <form method="POST" action="{{ route('update.sellorder', ['id' => $transaction->id, 'status' => 'active'] ) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-2 py-1  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Accept</button>
+                                            </form>
+                                            <div class="text-xl mr-2 ml-2 ">
+                                                /
+                                            </div>
+                                            <form method="POST" action="{{ route('update.sellorder', ['id' => $transaction->id, 'status' => 'cancelled'] ) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PATCH')
+                                            <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-2 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Decline</button>
+                                            </form>
                                         </div>
                                     </div>
                                 @endforeach
@@ -92,34 +121,37 @@
                                 ACTIVE ORDERS
                             </div>
                             <div class="w-full flex text-sm font-semibold">
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         NO
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         GIG
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         DUE ON
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         PACKAGE
                                 </div>
-                                <div class="w-1/5 border border-gray-200 text-center py-2">
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
                                         PRICE
+                                </div>
+                                <div class="w-1/6 border border-gray-200 text-center py-2">
+                                        DELIVERABLE
                                 </div>
                             </div>
                             @if(count($transactions->where('status', 'active')) > 0)
                                 @foreach($transactions->where('status', 'active') as $index => $transaction)
                                     <div class="w-full flex text-sm font-semibold">
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                             {{ $loop->iteration }} {{-- Adding 1 to start index from 1 instead of 0 --}}
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
-                                        <a href="{{ route('service.show', ['id' => $transaction->service->id]) }}" class="text-decoration-none hover:underline">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
+                                        <a href="{{ route('service.show', ['id' => $transaction->service->id, 'user_id' => $transaction->service->user_id]) }}" class="text-decoration-none hover:underline">
                                             {{ $transaction->service->title }}
                                             </a>
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                             @php
                                                 // Calculate days remaining
                                                 $updatedDate = \Carbon\Carbon::parse($transaction->updated_at);
@@ -134,14 +166,22 @@
                                                 Due date passed
                                             @endif
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                             {{ $transaction->package }}
                                         </div>
-                                        <div class="w-1/5 border border-gray-200 text-center py-2">
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">
                                         @php
                                             $packagePrice = $transaction->service->{$transaction->package.'_plan_price'};
                                         @endphp
                                        ${{ $packagePrice }}
+                                        </div>
+                                        <div class="w-1/6 border border-gray-200 text-center py-2">     
+                                            <form method="POST" action="{{ route('complete.sellorder', ['id' => $transaction->id, 'status' => 'completed'] ) }}" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PATCH')
+                                                <input type="file" class="ml-2 form-control" name="deliverable" required>
+                                                <button type="submit" class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 ">Complete</button>
+                                            </form>
                                         </div>
                                     </div>
                                 @endforeach
@@ -179,7 +219,7 @@
                                             {{ $loop->iteration }} {{-- Adding 1 to start index from 1 instead of 0 --}}
                                         </div>
                                         <div class="w-1/4 border border-gray-200 text-center py-2">
-                                        <a href="{{ route('service.show', ['id' => $transaction->service->id]) }}" class="text-decoration-none hover:underline">
+                                        <a href="{{ route('service.show', ['id' => $transaction->service->id, 'user_id' => $transaction->service->user_id]) }}" class="text-decoration-none hover:underline">
                                             {{ $transaction->service->title }}
                                             </a>
                                         </div>
@@ -220,14 +260,14 @@
                                 </div>
                                 
                             </div>
-                            @if(count($transactions->where('status', 'completed')) > 0)
-                                @foreach($transactions->where('status', 'completed') as $index => $transaction)
+                            @if(count($transactions->where('status', 'cancelled')) > 0)
+                                @foreach($transactions->where('status', 'cancelled') as $index => $transaction)
                                     <div class="w-full flex text-sm font-semibold">
                                         <div class="w-1/4 border border-gray-200 text-center py-2">
                                             {{ $loop->iteration }} {{-- Adding 1 to start index from 1 instead of 0 --}}
                                         </div>
                                         <div class="w-1/4 border border-gray-200 text-center py-2">
-                                        <a href="{{ route('service.show', ['id' => $transaction->service->id]) }}" class="text-decoration-none hover:underline">
+                                        <a href="{{ route('service.show', ['id' => $transaction->service->id, 'user_id' => $transaction->service->user_id]) }}" class="text-decoration-none hover:underline">
                                             {{ $transaction->service->title }}
                                             </a>
                                         </div>

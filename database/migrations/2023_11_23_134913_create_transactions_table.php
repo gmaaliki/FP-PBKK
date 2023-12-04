@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('quantity')->unsigned();
             $table->string('status');
             $table->string('package');
+            $table->string('deliverable');
+            $table->boolean('isReview');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('service_id')->constrained();
         });

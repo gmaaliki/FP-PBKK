@@ -24,6 +24,7 @@ class Service extends Model
         'premium_plan_price',
         'premium_plan_description',
         'premium_plan_days',
+        'average_star',
     ];
 
     public function user() {
@@ -36,6 +37,10 @@ class Service extends Model
 
     public function servicereport() {
         return $this->hasMany(ServiceReport::class);
+    }
+
+    public function userreview() {
+        return $this->hasMany(UserReview::class);
     }
 
     public function servicepicture() {

@@ -8,6 +8,7 @@ use App\Http\Controllers\UserLanguageController;
 use App\Http\Controllers\UserSkillController;
 use App\Http\Controllers\UserEducationController;
 use App\Http\Controllers\UserCertificationController;
+use App\Http\Controllers\UserReviewController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TransactionController;
@@ -47,13 +48,23 @@ Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 
 
 Route::get('/subcategory/{subcategory}/{budgetLower}/{budgetUpper}/{time}', [SubcategoryController::class, 'index'])->name('subcategory.show');
 Route::get('/my_order', [TransactionController::class, 'index'])->name('get.myorder');
+Route::patch('/my_order/edit/{id}/{status}', [TransactionController::class, 'update_my_order'])->name('update.myorder');
+Route::get('/my_order/download/{id}', [TransactionController::class, 'download'])->name('download.myorder');
+
 
 Route::get('/manage_order', [TransactionController::class, 'manage'])->name('get.sellorder');
+Route::patch('/manage_order/edit/{id}/{status}', [TransactionController::class, 'update'])->name('update.sellorder');
+Route::patch('/manage_order/complete/{id}/{status}', [TransactionController::class, 'complete'])->name('complete.sellorder');
+
+Route::get('/review/{id}/{transaction_id}', [UserReviewController::class, 'index'])->name('review.show');
+Route::post('/review/{id}/{transaction_id}', [UserReviewController::class, 'store'])->name('review.store');
 
 // Route::get('/my_order', function(){
 //     return view('my_order');
 // })->name('myorder');
-
+Route::get('/testingJob',function(){
+    dispatch(new App\Jobs\CalculateServiceRating);
+});
 
 
 

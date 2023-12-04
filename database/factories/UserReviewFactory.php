@@ -21,6 +21,7 @@ class UserReviewFactory extends Factory
             'star_rating' => fake()->numberBetween(1,5),
             'review_description' => fake()->text(),
             'user_id' => fake()->numberBetween(1,100),
+            'service_id' => fake()->numberBetween(1,150),
         ];
     }
 }
