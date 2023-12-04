@@ -186,7 +186,7 @@
                         <x-nav-link>
                             {{ __('Graphics & Design') }}
                         </x-nav-link>
-                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300  space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                             <ul>
                                     
                                     <li><a href="{{ route('subcategory.show', ['subcategory' => 'Logo & Brand Identity', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
@@ -203,7 +203,7 @@
                             <x-nav-link>
                                 {{ __('Programming & Tech') }}
                             </x-nav-link>
-                                <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                     <ul>
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Website Development', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Website Development</a></li>
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Software Development', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Software Development</a></li>
@@ -219,7 +219,7 @@
                             <x-nav-link>
                                 {{ __('Digital Marketing') }}
                             </x-nav-link>
-                                <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                     <ul>
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Search', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Search</a></li>
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Social', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Social</a></li>
@@ -234,7 +234,7 @@
                         <x-nav-link>
                             {{ __('Video & Animation') }}
                         </x-nav-link>
-                                <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                     <ul>
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Editing & Post-Production', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Editing & Post-Production</a></li>
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Animation', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Animation</a></li>
@@ -251,7 +251,7 @@
                         <x-nav-link>
                             {{ __('Writing & Translation') }}
                         </x-nav-link>
-                                    <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                    <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                         <ul>
                                             <li><a href="{{ route('subcategory.show', ['subcategory' => 'Content Writing', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Content Writing</a></li>
                                             <li><a href="{{ route('subcategory.show', ['subcategory' => 'Career Writing', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Career Writing</a></li>
@@ -268,7 +268,7 @@
                             <x-nav-link>
                                 {{ __('Music & Audio') }}
                             </x-nav-link>
-                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                             <ul>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Music Production & Writing', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Music Production & Writing</a></li>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Streaming & Audio', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Streaming & Audio</a></li>
@@ -284,7 +284,7 @@
                             <x-nav-link>
                                 {{ __('Business') }}
                             </x-nav-link>
-                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                             <ul>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'General & Administrative', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">General & Administrative</a></li>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Business Management', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Business Management</a></li>
@@ -299,7 +299,7 @@
                             <x-nav-link>
                                 {{ __('Data') }}
                             </x-nav-link>
-                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                             <ul>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Data Analysis', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Data Analysis</a></li>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Data Collection', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Data Collection</a></li>
@@ -315,7 +315,7 @@
                         <x-nav-link>
                             {{ __('Photography') }}
                         </x-nav-link>
-                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 border-r-0 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
+                                        <ul class="absolute hidden text-gray-800 bg-white border border-gray-300 space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                                             <ul>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Products & Lifestyle', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Products & Lifestyle</a></li>
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'People & Scenes', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">People & Scenes</a></li>
