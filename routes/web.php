@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\UserLanguageController;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\User;
 use App\Models\UserSkill;
 
+use App\Http\Controllers\UserLanguageController;
+use App\Http\Controllers\UserSkillController;
+use App\Http\Controllers\UserEducationController;
+use App\Http\Controllers\UserCertificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -49,9 +52,27 @@ Route::post('/gigs', [ServiceController::class,'store'])->name('service.store');
 
 Route::get('/language', [UserLanguageController::class, 'create'])->name('language.create');
 Route::post('/language', [UserLanguageController::class, 'store'])->name('language.store');
-Route::get('/language/{language}/edit', [UserLanguageController::class, 'edit'])->name('language.edit');
-Route::patch('/language/{language}/edit', [UserLanguageController::class, 'update'])->name('language.update');
-// Route::patch('/');
+Route::get('/language/{id_language}/edit', [UserLanguageController::class, 'edit'])->name('language.edit');
+Route::patch('/language/{id_language}/edit', [UserLanguageController::class, 'update'])->name('language.update');
+Route::delete('/language/{id_language}/delete', [UserLanguageController::class, 'destroy'])->name('language.destroy');
+
+Route::get('/skill', [UserSkillController::class, 'create'])->name('skill.create');
+Route::post('/skill', [UserSkillController::class, 'store'])->name('skill.store');
+Route::get('/skill/{id_skill}/edit', [UserSkillController::class, 'edit'])->name('skill.edit');
+Route::patch('/skill/{id_skill}/edit', [UserSkillController::class, 'update'])->name('skill.update');
+Route::delete('/skill/{id_skill}/delete', [UserSkillController::class, 'destroy'])->name('skill.destroy');
+
+Route::get('/education', [UserEducationController::class, 'create'])->name('education.create');
+Route::post('/education', [UserEducationController::class, 'store'])->name('education.store');
+Route::get('/education/{id_education}/edit', [UserEducationController::class, 'edit'])->name('education.edit');
+Route::patch('/education/{id_education}/edit', [UserEducationController::class, 'update'])->name('education.update');
+Route::delete('/education/{id_education}/delete', [UserEducationController::class, 'destroy'])->name('education.destroy');
+
+Route::get('/certification', [UserCertificationController::class, 'create'])->name('certification.create');
+Route::post('/certification', [UserCertificationController::class, 'store'])->name('certification.store');
+Route::get('/certification/{id_certification}/edit', [UserCertificationController::class, 'edit'])->name('certification.edit');
+Route::patch('/certification/{id_certification}/edit', [UserCertificationController::class, 'update'])->name('certification.update');
+Route::delete('/certification/{id_certification}/delete', [UserCertificationController::class, 'destroy'])->name('certification.destroy');
 
 Route::get('/manage_order', function(){
     return view('manage_order');

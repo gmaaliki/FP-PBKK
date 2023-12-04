@@ -12,7 +12,7 @@ class UserCertification extends Model
     protected $table = 'user_certification';
 
     protected $fillable = [
-        'certificate_or_award',
+        'certificate_name',
         'certification_from',
         'year',
     ];

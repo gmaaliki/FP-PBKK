@@ -60,10 +60,11 @@ class UserLanguageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    // public function edit(UserLanguage $userLanguage)
-    // {
-    //     return view('user_languages.edit', compact('userLanguage'));
-    // }
+    public function edit(Request $request)
+    {
+        $userLanguage = UserLanguage::find($request->id_language);
+        return view('language.edit', compact('userLanguage'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -74,15 +75,25 @@ class UserLanguageController extends Controller
             'language' => 'required|string|max:255',
             'language_level' => 'required|string|max:255',
         ]);
+        $userLanguage = UserLanguage::find($request->id_language);
 
-        $userLanguage->update($request->all());
+        $userLanguage->update([
+            'language' => $request->language,
+            'language_level' => $request->language_level,
+        ]);
+
+        $successMessage = "User language successfully edited";
+
+        return redirect()->route('profile.show')->with('success', $successMessage);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(UserLanguage $userLanguage)
+    public function destroy(Request $request)
     {
-        $userLanguage->delete();
+        UserLanguage::find($request->id_language)->delete();
+        $successMessage = "User language successfully deleted";
+        return back()->with('success', $successMessage);
     }
 }
