@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SubcategoryController extends Controller
 {
-    public function index($subcategory, $budget, $time)
+    public function index($subcategory, $budgetLower, $budgetUpper, $time)
     {
         // Find the Subcategory by name or another identifier
         $subcategoryModel = Subcategory::where('subcategory_name', $subcategory)->first();
@@ -22,7 +22,7 @@ class SubcategoryController extends Controller
 
         //dd($services);
         // Pass the services to the view
-        return view('subcategory', compact('subcategoryModel', 'services'));
+        return view('subcategory', compact('subcategoryModel', 'services', 'budgetLower', 'budgetUpper', 'time'));
     }
 
     public function store(Request $request)

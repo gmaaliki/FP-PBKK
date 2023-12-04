@@ -90,14 +90,14 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($id, $user_id)
     {
-        $languages = UserLanguage::where('user_id', $id)->pluck('language')->toArray();
+        $languages = UserLanguage::where('user_id', $user_id)->pluck('language')->toArray();
 
-        $user = User::find($id);
+        $user = User::find($user_id);
 
         $userReviews = UserReview::with('user')
-            ->where('user_id', $id)
+            ->where('user_id', $user_id)
             ->get();
  
 

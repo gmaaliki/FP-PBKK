@@ -18,12 +18,12 @@
     <div class="flex items-center bg-white place-content-center">
         <div class="px-32 py-10 flex">
             <div class="ml-20 w-150">
-                <div class="flex items-center">
+                <!-- <div class="flex items-center">
                 <svg class="h-4 w-4 text-black"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
 </svg>
 / Programming & Tech
-                </div>
+                </div> -->
                 <div class="mt-8 text-3xl font-bold">
                     {{ $service->title}}
                 </div>
@@ -249,12 +249,12 @@
             <div class="ml-20">
                 <div class="sticky top-7">
                     <div class="flex justify-end">
-                        <div class="border border-gray-400 rounded-md px-2 py-1">
+                        <!-- <div class="border border-gray-400 rounded-md px-2 py-1">
                             <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="6" cy="12" r="3" />  <circle cx="18" cy="6" r="3" />  <circle cx="18" cy="18" r="3" />  <line x1="8.7" y1="10.7" x2="15.3" y2="7.3" />  <line x1="8.7" y1="13.3" x2="15.3" y2="16.7" /></svg>
                         </div>
                         <div class="border border-gray-400 rounded-md px-2 py-1 ml-3">
                         <svg class="h-5 w-5 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="1" />  <circle cx="19" cy="12" r="1" />  <circle cx="5" cy="12" r="1" /></svg>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="flex mt-5">
                         <div class="border border-gray-300 w-32 py-3 text-center tab active" data-tab="basic">

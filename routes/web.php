@@ -31,14 +31,14 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [ServiceController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/services/{id}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('/services/{id}/{user_id}', [ServiceController::class, 'show'])->name('service.show');
 
 
 // Route for handling the transaction
 Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 'storeTransaction'])
     ->name('store.transaction');
 
-    Route::get('/subcategory/{subcategory}/{budget}/{time}', [SubcategoryController::class, 'index'])->name('subcategory.show');
+Route::get('/subcategory/{subcategory}/{budgetLower}/{budgetUpper}/{time}', [SubcategoryController::class, 'index'])->name('subcategory.show');
 
 
 Route::middleware('auth')->group(function () {
