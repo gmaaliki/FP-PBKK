@@ -18,10 +18,10 @@ class TransactionFactory extends Factory
     {
 
         $status = [
-            'Cancelled',
-            'Pending',
-            'On Hold',
-            'Success',
+            'cancelled',
+            'pending',
+            'completed',
+            'active',
         ];
 
         $package = [

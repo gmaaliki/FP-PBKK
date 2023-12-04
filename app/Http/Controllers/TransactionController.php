@@ -15,9 +15,17 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $transactions = $user->transaction()->with('service')->get();
+        return view('my_order', compact('transactions'));
     }
 
+    public function manage()
+    {
+        $user = Auth::user();
+        $transactions = $user->service()->with('transaction')->get();
+        return view('manage_order', compact('transactions'));
+    }
     /**
      * Show the form for creating a new resource.
      */
