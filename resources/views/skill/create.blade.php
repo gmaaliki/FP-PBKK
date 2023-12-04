@@ -6,7 +6,7 @@
             </div>
             <div class="mt-5 mb-5 w-3/5 border border-gray-300"></div>
             <div>
-                <form method="POST" action="{{ route('education.store', ['id' => Auth::user()->id] ) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('skill.store', ['id_skill' => Auth::user()->id] ) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="m-3">
                         <x-input-label for="skill" :value="__('Skill name')"/>

@@ -10,7 +10,7 @@
                     @csrf
                     <div class="m-3">
                         <x-input-label for="certificate_name" :value="__('Certificate Name')"/>
-                        <x-text-input id="certificate_name" name="cetificate_name" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="certificate_name" />
+                        <x-text-input id="certificate_name" name="certificate_name" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="certificate_name" />
                         <x-input-error class="mt-2" :messages="$errors->get('certificate_name')" />
                     </div>
 

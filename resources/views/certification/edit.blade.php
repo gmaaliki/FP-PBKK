@@ -7,31 +7,25 @@
             </div>
             <div class="mt-5 mb-5 w-3/5 border border-gray-300"></div>
             <div>
-                <form method="POST" action="{{ route('education.update', ['id_education' => $userEducation->id] ) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('certification.update', ['id_certification' => $userCertification->id] ) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
 
                     <div class="m-3">
-                        <x-input-label for="country_of_college" :value="__('Country')"/>
-                        <x-text-input id="country_of_college" name="country_of_college" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="country_of_college" :value="$userEducation->country_of_college" />
+                        <x-input-label for="certificate_name" :value="__('Certificate Name')"/>
+                        <x-text-input id="certificate_name" name="certificate_name" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="certificate_name" :value="$userCertification->certificate_name" />
                         <x-input-error class="mt-2" :messages="$errors->get('country_of_college')" />
                     </div>
 
                     <div class="m-3">
-                        <x-input-label for="title" :value="__('Title')"/>
-                        <x-text-input id="title" name="title" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="title" :value="$userEducation->title"/>
-                        <x-input-error class="mt-2" :messages="$errors->get('title')" />
-                    </div>
-
-                    <div class="m-3">
-                        <x-input-label for="major" :value="__('Major')"/>
-                        <x-text-input id="major" name="major" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="major" :value="$userEducation->major"/>
-                        <x-input-error class="mt-2" :messages="$errors->get('major')" />
+                        <x-input-label for="certification_from" :value="__('Origin of Certification')"/>
+                        <x-text-input id="certification_from" name="certification_from" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="certification_from" :value="$userCertification->certification_from"/>
+                        <x-input-error class="mt-2" :messages="$errors->get('certification_from')" />
                     </div>
 
                     <div class="m-3">
                         <x-input-label for="year" :value="__('Year of Graduation')"/>
-                        <x-text-input id="year" name="year" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="year" :value="$userEducation->year"/>
+                        <x-text-input id="year" name="year" type="text" class="mt-1 block w-2/5" required autofocus autocomplete="year" :value="$userCertification->year"/>
                         <x-input-error class="mt-2" :messages="$errors->get('year')" />
                     </div>
 
