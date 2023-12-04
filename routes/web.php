@@ -34,6 +34,8 @@ Route::get('/dashboard', [ServiceController::class, 'index'])->middleware(['auth
 Route::get('/services/{id}/{user_id}', [ServiceController::class, 'show'])->name('service.show');
 
 
+Route::post('/searchfilter', [ServiceController::class, 'filter'])->name('service.filter');
+
 // Route for handling the transaction
 Route::post('/store-transaction/{id}/{package}', [TransactionController::class, 'storeTransaction'])
     ->name('store.transaction');
@@ -58,17 +60,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/gigs', function(){
-    return view('gigs');
-});
+// Route::get('/gigs', function(){
+//     return view('gigs');
+// });
 
 Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
-Route::get('/addgigs', function(){
-    return view('addgigs');
-});
+// Route::get('/addgigs', function(){
+//     return view('addgigs');
+// });
 
 // Route::get('/manage_order', function(){
 //     return view('manage_order');
@@ -80,9 +82,14 @@ Route::get('/wishlist', function(){
     return view('wishlist');
 });
 
-Route::get('/subcategory', function(){
-    return view('subcategory');
-});
+// Route::get('/searchfilter', function(){
+//     return view('searchfilter');
+// });
+
+
+// Route::get('/subcategory', function(){
+//     return view('subcategory');
+// });
 
 Route::get('/test-relationships', function () {
     // Create a category
