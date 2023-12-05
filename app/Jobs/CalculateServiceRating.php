@@ -33,14 +33,14 @@ class CalculateServiceRating implements ShouldQueue
         ->select('services.*', DB::raw('AVG(user_review.star_rating) as average_rating'))
         ->groupBy('services.id')
         ->get();
-
+        //  dd($services);
         // dd($services);
 
         foreach ($services as $service) {
 
             //dd($service);
             $averageRating = $service->average_rating ?? 0;
-
+            
             // Update the service's average_star column (assuming you have such a column)
             $service->update(['average_star' => $averageRating]);
         }

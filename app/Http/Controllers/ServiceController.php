@@ -66,7 +66,7 @@ class ServiceController extends Controller
 
 
         $services = Service::join('users', 'services.user_id', '=', 'users.id')
-        ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
+        ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
         ->select(
             'services.*',
             'users.name as username',
@@ -76,6 +76,8 @@ class ServiceController extends Controller
         ->groupBy('services.id', 'users.name')
         ->take(30)
         ->get();
+
+        //dd($services);
 
 
         return view('dashboard', compact('services', 'reccomendServices', 'randomSubcategory'));
@@ -157,14 +159,14 @@ class ServiceController extends Controller
         $user = User::find($user_id);
 
         $reviews = UserReview::with('user')
-            ->where('user_id', $user_id)
+            ->where('service_id', $id)
             ->get();
- 
+        
 
         $registrationYear = $user->created_at->format('Y');
 
         $service = Service::join('users', 'services.user_id', '=', 'users.id')
-        ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
+        ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
         ->select(
             'services.*',
             'users.name as username',
