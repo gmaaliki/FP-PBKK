@@ -12,6 +12,7 @@ use App\Http\Controllers\UserCertificationController;
 use App\Http\Controllers\UserReviewController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceReportController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\SubcategoryController;
 use Illuminate\Support\Facades\Route;
@@ -59,6 +60,9 @@ Route::patch('/manage_order/complete/{id}/{status}', [TransactionController::cla
 
 Route::get('/review/{id}/{transaction_id}', [UserReviewController::class, 'index'])->name('review.show');
 Route::post('/review/{id}/{transaction_id}', [UserReviewController::class, 'store'])->name('review.store');
+
+Route::get('/report/{id}', [ServiceReportController::class, 'index'])->name('report.show');
+Route::post('/report/{id}', [ServiceReportController::class, 'store'])->name('report.store');
 
 // Route::get('/my_order', function(){
 //     return view('my_order');
@@ -125,6 +129,9 @@ Route::delete('/certification/{id_certification}/delete', [UserCertificationCont
 // });
 
 
+Route::get('/report', function(){
+    return view('report');
+});
 
 Route::get('/wishlist', function(){
     return view('wishlist');
