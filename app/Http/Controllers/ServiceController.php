@@ -158,10 +158,26 @@ class ServiceController extends Controller
 
         $user = User::find($user_id);
 
-        $reviews = UserReview::with('user')
-            ->where('service_id', $id)
+        // $reviews = UserReview::with('user')
+        //     ->where('service_id', $id)
+        //     ->get();
+
+        $reviews = UserReview::join('users', 'user_review.user_id', '=', 'users.id')
+            ->where('user_review.service_id', $id)
+            ->select('user_review.*', 'users.name as user_name')
             ->get();
-        
+
+        // $reviews = User::join('user_review', 'user_review.user_id', '=', 'users.id')
+        //     ->join('services', 'user_review.service_id', '=', 'services.id')
+        //     ->select(
+        //         'users.*',
+        //         'user_review.review_description as review_description',
+                
+        //     )
+        //     ->where('services.id', $id)
+        //     ->get();
+
+           // dd($reviews);
 
         $registrationYear = $user->created_at->format('Y');
 
