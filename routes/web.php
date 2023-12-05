@@ -13,6 +13,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,9 @@ Route::patch('/manage_order/complete/{id}/{status}', [TransactionController::cla
 
 Route::get('/review/{id}/{transaction_id}', [UserReviewController::class, 'index'])->name('review.show');
 Route::post('/review/{id}/{transaction_id}', [UserReviewController::class, 'store'])->name('review.store');
+
+Route::get('/admin/{id}', [AdminController::class, 'index'])->name('admin.show');
+
 
 // Route::get('/my_order', function(){
 //     return view('my_order');

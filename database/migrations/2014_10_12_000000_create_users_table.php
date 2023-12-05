@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->text('description')->nullable();
             $table->string('occupation')->nullable();
-            $table->string('user_privilege')->nullable();
+            $table->boolean('isAdmin');
             $table->rememberToken();
             $table->timestamps();
         });

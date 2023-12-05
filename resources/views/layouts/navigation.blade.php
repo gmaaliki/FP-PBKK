@@ -132,7 +132,12 @@
                             {{ __('Manage Selling Order') }}
                         </x-dropdown-link>
 
-               
+                        @if(auth()->user()->isAdmin)
+                            <x-dropdown-link :href="route('admin.show', ['id' => auth()->user()->id])">
+                                {{ __('Admin Page') }}
+                            </x-dropdown-link>
+                        @endif
+
 
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Account Setting') }}
