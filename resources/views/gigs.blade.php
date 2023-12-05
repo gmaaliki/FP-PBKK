@@ -68,7 +68,11 @@
                         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                             <!-- Item 1 -->
                             <div class="" >
+                            @if($service->image != 'path')    
+                                <img src="{{ Storage::url($service->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="image-service">
+                            @else
                                 <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            @endif
                             </div>
                        
                         </div>
@@ -181,7 +185,7 @@
                                 <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
                                 <div>
                                     <div class="ml-4 font-semibold text-lg">
-                                            <a href="{{ route('profile.page.show', ['id' => $reviewer->user_id]) }}" class="text-decoration-none">
+                                            <a href="{{ route('profile.page.show', ['id' => $review->user_id]) }}" class="text-decoration-none">
                                             {{$review->user_name}}
                                             </a>
                                     </div>
