@@ -90,7 +90,9 @@ Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
-Route::patch('/gigs/{id_user}/edit', [UserController::class, 'update'])->name('profile-picture.update');
+Route::patch('/profile_picture/{id_user}/edit', [UserController::class, 'update'])->name('profile-picture.update');
+Route::get('/description/{id_user}/edit', [UserController::class,'editDescription'])->name('description.edit');
+Route::patch('/description/{id_user}/edit', [UserController::class,'updateDescription'])->name('description.update');
 
 Route::get('/gigs', [ServiceController::class, 'create'])->name('service.create');
 Route::post('/gigs', [ServiceController::class,'store'])->name('service.store');

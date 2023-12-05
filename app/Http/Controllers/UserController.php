@@ -18,7 +18,7 @@ class UserController extends Controller
 
         $path = $request->file('image')->store('public/images');
 
-        if ($request->hasFile('image')) {
+        if ($request->image) {
             $user->update([
                 'image'=> $path,
             ]);
@@ -29,5 +29,22 @@ class UserController extends Controller
         $successMessage = "Profile picture is successfully added";
 
         return redirect()->route('profile.edit')->with('success', $successMessage);
+    }
+
+    public function editDescription(Request $request) {
+        $user = User::find($request->id_user);
+
+        return view('description.edit', compact('user'));
+    }
+
+    public function updateDescription(Request $request) {
+        $user = User::find($request->id_user);
+        $user->update([
+            'description'=> $request->description,
+        ]);
+
+        $successMessage = "User description is successfully edited";
+
+        return redirect()->route('profile.show')->with('success', $successMessage);
     }
 }
