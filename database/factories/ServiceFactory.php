@@ -31,7 +31,9 @@ class ServiceFactory extends Factory
             'premium_plan_price' => 100,
             'premium_plan_description' => fake()->text(50),
             'premium_plan_days' => 21,
+            'image' => 'path',
             'user_id' => fake()->numberBetween(1,100),
+            'category_id' => fake()->numberBetween(1,9),
             'subcategory_id' => fake()->numberBetween(1,18),
         ];
     }

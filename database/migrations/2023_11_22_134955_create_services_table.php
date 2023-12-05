@@ -28,7 +28,9 @@ return new class extends Migration
             $table->integer('premium_plan_price');
             $table->string('premium_plan_description');
             $table->string('premium_plan_days');
+            $table->string('image');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('category_id')->constrained('subcategory');
             $table->foreignId('subcategory_id')->constrained('subcategory');
         });
     }

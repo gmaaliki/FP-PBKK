@@ -24,12 +24,14 @@ class ProfileController extends Controller
         $skills = User::find($user_id)->userskill()->get();
         $educations = User::find($user_id)->usereducation()->get();
         $certifications = User::find($user_id)->usercertification()->get();
+        $services = User::find($user_id)->service()->get();
         return view('profile.show', [
             'user' => $request->user(),
             'languages' => $languages,
             'skills' => $skills,
             'educations' => $educations,
             'certifications' => $certifications,
+            'services' => $services,
         ]);
     }
 

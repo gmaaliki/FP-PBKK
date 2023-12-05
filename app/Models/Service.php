@@ -24,6 +24,9 @@ class Service extends Model
         'premium_plan_price',
         'premium_plan_description',
         'premium_plan_days',
+        'image',
+        'category_id',
+        'subcategory_id',
     ];
 
     public function user() {
@@ -36,10 +39,6 @@ class Service extends Model
 
     public function servicereport() {
         return $this->hasMany(ServiceReport::class);
-    }
-
-    public function servicepicture() {
-        return $this->hasMany(ServicePicture::class);
     }
 
     public function transaction() {

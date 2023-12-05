@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             SubcategorySeeder::class,
             ServiceSeeder::class,
             ServiceReportSeeder::class,
-            ServicePictureSeeder::class,
             TransactionSeeder::class,
             WishlistSeeder::class,
         ]);
