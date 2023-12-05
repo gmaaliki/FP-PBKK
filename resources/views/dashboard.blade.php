@@ -60,7 +60,11 @@
                                         <div class="relative overflow-hidden rounded-lg md:h-52">
                                             <!-- Item 1 -->
                                             <div>
-                                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                                @if($service->image != 'path')    
+                                                    <img src="{{ Storage::url($service->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="image-service">
+                                                @else
+                                                    <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                                @endif
                                             </div>
                                         </div>
   
@@ -68,7 +72,11 @@
 
                                     <div class="mt-2 flex">
                                         <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
-                                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-7 w-7">
+                                            @if($service->image != 'path')    
+                                                            <img src="{{ Storage::url($service->image) }}" class="rounded-full h-7 w-7" alt="image-service">
+                                                        @else
+                                                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="rounded-full h-7 w-7" alt="...">
+                                                        @endif
                                         </a>
                                         <div>
                                             <div class="ml-2 font-semibold text-base">
@@ -139,7 +147,11 @@
                                                     <!-- Item 1 -->
                                                     <div>
                                                     <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
-                                                        <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                                    @if($service->image != 'path')    
+                                                    <img src="{{ Storage::url($service->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="image-service">
+                                                @else
+                                                    <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                                @endif
                                                     </a>
                                                     </div>
                                                 </div>
