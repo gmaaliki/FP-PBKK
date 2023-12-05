@@ -181,7 +181,9 @@
                                 <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
                                 <div>
                                     <div class="ml-4 font-semibold text-lg">
-                                        {{$review->user_name}}
+                                            <a href="{{ route('profile.page.show', ['id' => $reviewer->user_id]) }}" class="text-decoration-none">
+                                            {{$review->user_name}}
+                                            </a>
                                     </div>
                                     <div class="ml-4 flex items-center">
                                         <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
