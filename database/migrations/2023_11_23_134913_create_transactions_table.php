@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('deliverable');
             $table->boolean('isReview');
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('service_id')->constrained();
+            $table->foreignId('service_id')->constrained()->onDelete('cascade');;
         });
     }
 

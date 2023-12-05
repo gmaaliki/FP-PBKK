@@ -37,19 +37,14 @@ class ServiceController extends Controller
         
         
         $reccomendServices = Service::join('users', 'services.user_id', '=', 'users.id')
-        ->leftJoin('service_pictures', function ($join) {
-            $join->on('services.id', '=', 'service_pictures.service_id')
-                ->whereRaw('service_pictures.id = (SELECT MIN(id) FROM service_pictures WHERE service_id = services.id)');
-        })
         ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
         ->where('services.subcategory_id', $randomSubcategory->id) // Filter by the randomized subcategory ID
         ->select(
             'services.*',
             'users.name as username',
-            'service_pictures.path as picture_path',
             DB::raw('COUNT(user_review.id) as total_reviews')
         )
-        ->groupBy('services.id', 'users.name', 'service_pictures.path')
+        ->groupBy('services.id', 'users.name')
         ->take(5)
 
 //         $randomSubcategoryId = Subcategory::inRandomOrder()->value('id'); 
@@ -281,12 +276,30 @@ class ServiceController extends Controller
     public function destroy(Request $request)
     {
         $service = Service::find($request->id_service);
-
-        Storage::delete($service->image);
+        
+        if($service->image) {
+            Storage::delete($service->image);
+        }
         $service->delete();
 
         $successMessage = "User certification successfully deleted";
 
         return back()->with('success', $successMessage);
     }
+
+    public function destroyAdmin(Request $request)
+    {
+        $service = Service::find($request->id_service);
+        
+        if($service->image) {
+            Storage::delete($service->image);
+        }
+        $service->delete();
+
+        $successMessage = "Service deleted succesfully";
+
+        return redirect()->route('dashboard')->with('success', $successMessage);
+    }
+
+    
 }
