@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\ServiceReport;
 use App\Http\Requests\StoreServiceReportRequest;
 use App\Http\Requests\UpdateServiceReportRequest;
+use Illuminate\Http\Request;
 
 class ServiceReportController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+        return view('report', compact('id'));
     }
 
     /**
@@ -27,11 +28,19 @@ class ServiceReportController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreServiceReportRequest $request)
+    public function store($id, Request $request)
     {
-        //
-    }
+        $serviceReport = new ServiceReport([
+            'report_type' => $request->input('report_type'),
+            'description' => $request->input('report_description'),
+            'service_id' => $id, // Assuming you pass the service_id as a route parameter
+        ]);
 
+        $serviceReport->save();
+
+        $successMessage = "Report successfully send";
+        return redirect()->route('dashboard')->with('success', $successMessage);
+    }
     /**
      * Display the specified resource.
      */

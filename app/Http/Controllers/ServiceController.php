@@ -30,7 +30,7 @@ class ServiceController extends Controller
         // ->take(30)
         // ->get();
 
-        $randomSubcategoryId = Subcategory::inRandomOrder()->value('id'); 
+        $randomSubcategory = Subcategory::inRandomOrder()->first();
         
         
         $reccomendServices = Service::join('users', 'services.user_id', '=', 'users.id')
@@ -38,18 +38,18 @@ class ServiceController extends Controller
             $join->on('services.id', '=', 'service_pictures.service_id')
                 ->whereRaw('service_pictures.id = (SELECT MIN(id) FROM service_pictures WHERE service_id = services.id)');
         })
-        ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
-        ->where('services.subcategory_id', $randomSubcategoryId) // Filter by the randomized subcategory ID
+        ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
+        ->where('services.subcategory_id', $randomSubcategory->id) // Filter by the randomized subcategory ID
         ->select(
             'services.*',
             'users.name as username',
             'service_pictures.path as picture_path',
-            DB::raw('AVG(user_review.star_rating) as avg_star_rating'),
             DB::raw('COUNT(user_review.id) as total_reviews')
         )
         ->groupBy('services.id', 'users.name', 'service_pictures.path')
-        ->take(25)
+        ->take(5)
         ->get();
+
 
         $services = Service::join('users', 'services.user_id', '=', 'users.id')
         ->leftJoin('service_pictures', function ($join) {
@@ -61,7 +61,6 @@ class ServiceController extends Controller
             'services.*',
             'users.name as username',
             'service_pictures.path as picture_path',
-            DB::raw('AVG(user_review.star_rating) as avg_star_rating'),
             DB::raw('COUNT(user_review.id) as total_reviews')
         )
         ->groupBy('services.id', 'users.name', 'service_pictures.path')
@@ -70,7 +69,7 @@ class ServiceController extends Controller
 
 
 
-        return view('dashboard', compact('services', 'reccomendServices'));
+        return view('dashboard', compact('services', 'reccomendServices', 'randomSubcategory'));
     }
 
     /**
