@@ -97,7 +97,7 @@ Route::post('/gigs', [ServiceController::class,'store'])->name('service.store');
 Route::get('/gigs/{id_service}/edit', [ServiceController::class, 'edit'])->name('service.edit');
 Route::patch('/gigs/{id_service}/edit', [ServiceController::class,'update'])->name('service.update');
 Route::delete('/gigs/{id_service}/delete', [ServiceController::class,'destroy'])->name('service.destroy');
-Route::delete('/gigs/{id_service}/delete', [ServiceController::class,'destroyAdmin'])->name('service.admin.destroy');
+Route::delete('/gigs/{id_service}/deleteadmin', [ServiceController::class,'destroyAdmin'])->name('service.admin.destroy');
 
 Route::get('/language', [UserLanguageController::class, 'create'])->name('language.create');
 Route::post('/language', [UserLanguageController::class, 'store'])->name('language.store');
