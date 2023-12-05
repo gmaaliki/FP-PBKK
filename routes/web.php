@@ -15,6 +15,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceReportController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\ProfilePageController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -124,6 +125,8 @@ Route::post('/certification', [UserCertificationController::class, 'store'])->na
 Route::get('/certification/{id_certification}/edit', [UserCertificationController::class, 'edit'])->name('certification.edit');
 Route::patch('/certification/{id_certification}/edit', [UserCertificationController::class, 'update'])->name('certification.update');
 Route::delete('/certification/{id_certification}/delete', [UserCertificationController::class, 'destroy'])->name('certification.destroy');
+
+Route::get('/profile_page/{id}', [ProfilePageController::class, 'show'])->name('profile.page.show');
 
 // Route::get('/addgigs', function(){
 //     return view('addgigs');

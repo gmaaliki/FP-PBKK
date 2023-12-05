@@ -131,7 +131,10 @@
                                                 <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-7 w-7">
                                                 <div>
                                                     <div class="ml-2 font-semibold text-base">
+                                                    <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
                                                     {{ $service->username}}
+                                            </a>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
