@@ -24,6 +24,7 @@ class User extends Authenticatable
         'description',
         'occupation',
         'user_privilege',
+        'isAdmin',
     ];
 
     /**

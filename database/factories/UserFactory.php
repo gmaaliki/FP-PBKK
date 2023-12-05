@@ -28,6 +28,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'description' => fake()->paragraph(),
             'occupation' => fake()->jobTitle(),
+            'isAdmin' => 0,
         ];
     }
 
