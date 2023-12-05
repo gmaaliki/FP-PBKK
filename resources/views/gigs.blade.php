@@ -255,12 +255,14 @@
             <div class="ml-20">
                 <div class="sticky top-7">
                     <div class="flex justify-end">
-                        <!-- <div class="border border-gray-400 rounded-md px-2 py-1">
+                        <div class="border border-gray-400 rounded-md px-2 py-1">
                             <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="6" cy="12" r="3" />  <circle cx="18" cy="6" r="3" />  <circle cx="18" cy="18" r="3" />  <line x1="8.7" y1="10.7" x2="15.3" y2="7.3" />  <line x1="8.7" y1="13.3" x2="15.3" y2="16.7" /></svg>
                         </div>
                         <div class="border border-gray-400 rounded-md px-2 py-1 ml-3">
-                        <svg class="h-5 w-5 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="1" />  <circle cx="19" cy="12" r="1" />  <circle cx="5" cy="12" r="1" /></svg>
-                        </div> -->
+                            <a href="{{ route('report.show', ['id' => $service->id]) }}"  class="text-decoration-none hover:underline">
+                            Report Service
+                            </a>
+                        </div>
                     </div>
                     <div class="flex mt-5">
                         <div class="border border-gray-300 w-32 py-3 text-center tab active" data-tab="basic">

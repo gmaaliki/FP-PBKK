@@ -24,6 +24,9 @@ class Service extends Model
         'premium_plan_price',
         'premium_plan_description',
         'premium_plan_days',
+        'image',
+        'category_id',
+        'subcategory_id',
         'average_star',
     ];
 
@@ -41,10 +44,6 @@ class Service extends Model
 
     public function userreview() {
         return $this->hasMany(UserReview::class);
-    }
-
-    public function servicepicture() {
-        return $this->hasMany(ServicePicture::class);
     }
 
     public function transaction() {

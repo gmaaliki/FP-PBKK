@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('occupation')->nullable();
             $table->boolean('isAdmin');
+            $table->string('image')->nullable();
+            $table->string('user_privilege')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

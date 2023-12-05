@@ -4,6 +4,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\User;
 use App\Models\UserSkill;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserLanguageController;
 use App\Http\Controllers\UserSkillController;
 use App\Http\Controllers\UserEducationController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\UserCertificationController;
 use App\Http\Controllers\UserReviewController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceReportController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\AdminController;
@@ -61,7 +63,8 @@ Route::get('/review/{id}/{transaction_id}', [UserReviewController::class, 'index
 Route::post('/review/{id}/{transaction_id}', [UserReviewController::class, 'store'])->name('review.store');
 
 Route::get('/admin/{id}', [AdminController::class, 'index'])->name('admin.show');
-
+Route::get('/report/{id}', [ServiceReportController::class, 'index'])->name('report.show');
+Route::post('/report/{id}', [ServiceReportController::class, 'store'])->name('report.store');
 
 // Route::get('/my_order', function(){
 //     return view('my_order');
@@ -87,8 +90,13 @@ Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
+Route::patch('/gigs/{id_user}/edit', [UserController::class, 'update'])->name('profile-picture.update');
+
 Route::get('/gigs', [ServiceController::class, 'create'])->name('service.create');
 Route::post('/gigs', [ServiceController::class,'store'])->name('service.store');
+Route::get('/gigs/{id_service}/edit', [ServiceController::class, 'edit'])->name('service.edit');
+Route::patch('/gigs/{id_service}/edit', [ServiceController::class,'update'])->name('service.update');
+Route::delete('/gigs/{id_service}/delete', [ServiceController::class,'destroy'])->name('service.destroy');
 
 Route::get('/language', [UserLanguageController::class, 'create'])->name('language.create');
 Route::post('/language', [UserLanguageController::class, 'store'])->name('language.store');
@@ -123,6 +131,9 @@ Route::delete('/certification/{id_certification}/delete', [UserCertificationCont
 // });
 
 
+Route::get('/report', function(){
+    return view('report');
+});
 
 Route::get('/wishlist', function(){
     return view('wishlist');

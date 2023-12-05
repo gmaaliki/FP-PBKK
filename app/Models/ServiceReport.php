@@ -12,6 +12,7 @@ class ServiceReport extends Model
     protected $fillable = [
         'report_type',
         'description',
+        'service_id',
     ];
 
     public function service() {

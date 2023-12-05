@@ -1,15 +1,5 @@
 <x-app-layout>
 
-<!-- <div class="flex items-center border-gray-200 bg-white border h-12">
-    <div class="flex mx-auto w-3/5">
-        <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
-            <div class=" flex items-center justify-center h-8 w-8 bg-green-400 rounded-full">
-                <div class="text-white text-xl flex items-center justify-center font-bold">1</div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="mt-8 flex items-center justify-center">
     <form method="POST" action="{{ route('service.store', ['user_id' => Auth::user()->id]) }}" enctype="multipart/form-data">
         @csrf
@@ -37,6 +27,10 @@
                     </div>
                 </div>
 
+                @error('title')
+                    <p class="text-red-500 text-lg italic">{{ $message }}</p>
+                @enderror
+
                 <div class="w-full flex mt-7">
                     <div class="w-1/3">
                         <div class="font-bold">
@@ -48,23 +42,29 @@
                         </div>
                         <div class="w-2/3 flex">
                             <div class="font-semibold text-l text-gray-800 leading-tight w-2/5">
-                                <label for="category"><h4> {{ __("Category :") }} </h4></label>
-                                <select class="mt-1 form-control border-gray-300 w-full rounded-md" id="category" name="category">
-                                    <option value="1">1 DAY DELIVERY</option>
-                                    <option value="2">2 DAYS DELIVERY</option>
-                                    <option value="3">3 DAYS DELIVERY</option>
+                                <label for="category_id"><h4> {{ __("Category :") }} </h4></label>
+                                <select class="mt-1 form-control border-gray-300 w-full rounded-md" id="category_id" name="category_id">
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="font-semibold text-l text-gray-800 leading-tight w-2/5 ml-20">
-                                <label for="subcategory"><h4> {{ __("Sub Category :") }} </h4></label>
-                                <select class="mt-1 form-control border-gray-300 w-full rounded-md" id="subcategory" name="subcategory">
-                                    <option value="1">1 DAY DELIVERY</option>
-                                    <option value="2">2 DAYS DELIVERY</option>
-                                    <option value="3">3 DAYS DELIVERY</option>
+                                <label for="subcategory_id"><h4> {{ __("Sub Category :") }} </h4></label>
+                                <select class="mt-1 form-control border-gray-300 w-full rounded-md" id="subcategory_id" name="subcategory_id">
+                                    @foreach($subcategories as $subcategory)
+                                        <option value="{{ $subcategory->id }}">{{ $subcategory->subcategory_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
+                    @error('category')
+                        <p class="text-red-500 text-lg italic">{{ $message }}</p>
+                    @enderror
+                    @error('subcategory')
+                        <p class="text-red-500 text-lg italic">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
 
@@ -157,7 +157,7 @@
                                 </select>
                             </div>
                             <div class="w-1/3 border  border-gray-200 flex items-start">
-                                <select class="mt-1 form-control border-0 w-full" name="basic_plan_days" id="basic_plan_days">
+                                <select class="mt-1 form-control border-0 w-full" name="premium_plan_days" id="premium_plan_days">
                                     <option class="hidden" value="" selected disabled>DELIVERY TIME</option>
                                     <option value="1">1 DAY DELIVERY</option>
                                     <option value="2">2 DAYS DELIVERY</option>
@@ -201,6 +201,43 @@
                 </div>
             </div>
 
+            @error('basic_plan_days')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('basic_plan_description')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('basic_plan_price')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('basic_plan_title')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('standard_plan_days')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('standard_plan_description')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('standard_plan_price')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('standard_plan_title')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('premium_plan_days')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('premium_plan_description')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('premium_plan_price')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+            @error('premium_plan_title')
+                <p class="text-red-500 text-lg italic">{{ $message }}</p>
+            @enderror
+
             <div class="text-2xl mt-10">
                 {{ __("Description") }}
             </div>
@@ -215,88 +252,26 @@
                         <textarea id="description" name="description" rows="3" class="block w-full h-60  border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6"></textarea>
                     </div>
                 </div>
+                @error('description')
+                    <p class="text-red-500 text-lg italic">{{ $message }}</p>
+                @enderror
             </div>
 
 
             <div class="text-2xl mt-10">
-                {{ __("Images") }}
+                {{ __("Image") }}
             </div>
             <div class="mt-5 mb-5 w-full border border-gray-300"></div>
 
             <div>
                 <div>
-                    Add images for your gig (up to 5)
+                    Add an image for your gig
                 </div>
-                <div class="mt-3 flex">     
-
-                    <div class="flex items-center justify-center w-1/4">
-                        <label class="flex flex-col items-center justify-center w-56 h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800  hover:bg-gray-100 dark:border-gray-600 ">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6 place">
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Drag & drop a photo or browse</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
-                                <input type="file" class="form-control hidden" name="gambar1" required|max:2048|mimes:jpeg,png,jpg>
-                            </div>
-                        </label>
-                    </div> 
-
-                    <div class="flex items-center justify-center w-1/4 ml-10">
-                        <label class="flex flex-col items-center justify-center w-56 h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800  hover:bg-gray-100 dark:border-gray-600 ">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6 place">
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Drag & drop a photo or browse</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
-                                <input type="file" class="form-control hidden" name="gambar2" required|max:2048|mimes:jpeg,png,jpg>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div class="flex items-center justify-center w-1/4 ml-10">
-                        <label class="flex flex-col items-center justify-center w-56 h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800  hover:bg-gray-100 dark:border-gray-600 ">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6 place">
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Drag & drop a photo or browse</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
-                                <input type="file" class="form-control hidden" name="gambar3" required|max:2048|mimes:jpeg,png,jpg>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-
-                <div class="mt-3 flex">     
-
-                    <div class="flex items-center justify-center w-1/4">
-                        <label class="flex flex-col items-center justify-center w-56 h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800  hover:bg-gray-100 dark:border-gray-600 ">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6 place">
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Drag & drop a photo or browse</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
-                                <input type="file" class="form-control hidden" name="gambar4" required|max:2048|mimes:jpeg,png,jpg>
-                            </div>
-                        </label>
-                    </div> 
-
-                    <div class="flex items-center justify-center w-1/4 ml-10">
-                        <label class="flex flex-col items-center justify-center w-56 h-52 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800  hover:bg-gray-100 dark:border-gray-600 ">
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6 place">
-                                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                </svg>
-                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Drag & drop a photo or browse</span></p>
-                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG</p>
-                                <input type="file" class="form-control hidden" name="gambar5" required|max:2048|mimes:jpeg,png,jpg>
-                            </div>
-                        </label>
-                    </div>
+                <div class="mb-4">
+                    <input type="file" name="image" id="image" class="p-2 border border-gray-300 rounded">
+                    @error('image')
+                        <p class="text-red-500 text-lg italic">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
             

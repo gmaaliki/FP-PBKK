@@ -30,9 +30,11 @@ class ServiceFactory extends Factory
             'premium_plan_title' => fake()->sentence(2),
             'premium_plan_price' => fake()->numberBetween(50,100),
             'premium_plan_description' => fake()->text(50),
+            'image' => 'path',
             'premium_plan_days' => fake()->numberBetween(14,30),
-            'average_star' => fake()->numberBetween(1,5),
+            'average_star' => 0,
             'user_id' => fake()->numberBetween(1,100),
+            'category_id' => fake()->numberBetween(1,9),
             'subcategory_id' => fake()->numberBetween(1,18),
         ];
     }

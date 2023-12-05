@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             UserReviewSeeder::class,
             ServiceReportSeeder::class,
-            ServicePictureSeeder::class,
             TransactionSeeder::class,
             WishlistSeeder::class,
         ]);
