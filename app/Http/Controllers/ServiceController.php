@@ -39,7 +39,7 @@ class ServiceController extends Controller
         ->get();
 
         $services = Service::join('users', 'services.user_id', '=', 'users.id')
-        ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
+        ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
         ->select(
             'services.*',
             'users.name as username',
@@ -49,7 +49,6 @@ class ServiceController extends Controller
         ->groupBy('services.id', 'users.name')
         ->take(30)
         ->get();
-
 
 
         return view('dashboard', compact('services', 'reccomendServices'));
@@ -111,6 +110,7 @@ class ServiceController extends Controller
             'image' => $path,
             'category_id' => $request->input('category_id'),
             'subcategory_id' => $request->input('subcategory_id'),
+            'average_star' => 0,
         ];
 
         $user->service()->create($data);        
@@ -128,33 +128,24 @@ class ServiceController extends Controller
         $languages = UserLanguage::where('user_id', $user_id)->pluck('language')->toArray();
 
         $user = User::find($user_id);
-        
-        $reviews = DB::table('user_review')
-        ->join('users', 'user_review.user_id', '=', 'users.id')
-        ->select('user_review.*', 'users.name as reviewer_name')
-        ->where('user_review.service_id', $id)
-        ->get();
 
-       // dd($reviews);
-
+        $reviews = UserReview::with('user')
+            ->where('user_id', $user_id)
+            ->get();
  
 
         $registrationYear = $user->created_at->format('Y');
 
         $service = Service::join('users', 'services.user_id', '=', 'users.id')
-        // ->leftJoin('service_pictures', function ($join) {
-        //     $join->on('services.id', '=', 'service_pictures.service_id')
-        //         ->whereRaw('service_pictures.id = (SELECT MIN(id) FROM service_pictures WHERE service_id = services.id)');
-        // })
         ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
         ->select(
             'services.*',
             'users.name as username',
-            'service_pictures.path as picture_path',
+            DB::raw('AVG(user_review.star_rating) as avg_star_rating'),
             DB::raw('COUNT(user_review.id) as total_reviews')
         )
         ->where('services.id', $id)
-        ->groupBy('services.id', 'users.name', 'service_pictures.path')
+        ->groupBy('services.id', 'users.name')
         ->first(); // Use first() to get a single result
 
         return view('gigs', compact('service', 'languages', 'registrationYear', 'reviews'));
@@ -168,19 +159,14 @@ class ServiceController extends Controller
         $searchBar = $request->input('search_bar');
         $services = Service::where('title', 'like', '%' . $searchBar . '%')
             ->join('users', 'services.user_id', '=', 'users.id')
-            ->join('service_pictures', function ($join) {
-                $join->on('services.id', '=', 'service_pictures.service_id')
-                    ->whereRaw('service_pictures.id = (SELECT MIN(id) FROM service_pictures WHERE service_id = services.id)');
-            })
-            ->join('user_review', 'services.id', '=', 'user_review.service_id')
+            ->join('user_review', 'services.user_id', '=', 'user_review.user_id')
             ->select(
                 'services.*',
                 'users.name as username',
-                'service_pictures.path as picture_path',
                 DB::raw('AVG(user_review.star_rating) as avg_star_rating'),
                 DB::raw('COUNT(user_review.id) as total_reviews')
             )
-            ->groupBy('services.id', 'users.name', 'service_pictures.path')
+            ->groupBy('services.id', 'users.name')
             ->get();
 
 
@@ -221,6 +207,12 @@ class ServiceController extends Controller
             'premium_plan_days' => 'required|integer',
             'image' => 'required|max:2048|mimes:jpeg,png,jpg'
         ]);
+
+        $service = Service::find($request->id_service);
+
+        if($service->image) {
+            Storage::delete($service->image);
+        }
 
         $path = $request->file('image')->store('public/images');
 
