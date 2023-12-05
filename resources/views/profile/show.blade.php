@@ -16,13 +16,13 @@
                                     <x-edit-icon/>
                                 </a>
                             </div>
-                            @if(Auth::user()->image)
+                            @if($user->image)
                                 <img src="{{ asset(Storage::url(Auth::user()->image)) }}" class="w-40 h-40 rounded-full bg-white border-2 mx-auto" alt="image-service">
                             @else
                                 <img class="w-40 h-40 rounded-full bg-white border-2 mx-auto" src="https://www.svgrepo.com/show/396909/letter-s.svg" alt="Rounded avatar">
                             @endif
                             <div class="text-3xl">
-                                <h1 class="text-center">{{ Auth::user()->name }}</h1>
+                                <h1 class="text-center">{{ $user->name }}</h1>
                             </div>
                         </div>
                     </div>   
@@ -30,12 +30,16 @@
                     <div class="bg-white border border-gray-300 mt-6 px-4">
                         <div class="py-4">
                                 <div class="mb-4">
-                                    <div class="font-semibold">
-                                        <h3>Description</h3>
-                                    </div>    
+                                    <div class="flex">
+                                        <div class="w-1/2 text-left">
+                                            <h3>Description</h3>
+                                        </div>
+                                        <div class="w-1/2 text-right flex justify-end">
+                                            <a href=" {{ route('description.edit', ['id_user' => $user->id]) }}"><x-edit-icon/></a>
+                                        </div>
+                                    </div>
                                     <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        {{ Auth::user()->description }}
+                                        {{ $user->description }}
                                     </p>
                                 </div>
                                 <div class="flex">
