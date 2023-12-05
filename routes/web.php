@@ -4,6 +4,7 @@ use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\User;
 use App\Models\UserSkill;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserLanguageController;
 use App\Http\Controllers\UserSkillController;
 use App\Http\Controllers\UserEducationController;
@@ -87,8 +88,13 @@ Route::get('/addgigs', function(){
     return view('addgigs');
 });
 
+Route::patch('/gigs/{id_user}/edit', [UserController::class, 'update'])->name('profile-picture.update');
+
 Route::get('/gigs', [ServiceController::class, 'create'])->name('service.create');
 Route::post('/gigs', [ServiceController::class,'store'])->name('service.store');
+Route::get('/gigs/{id_service}/edit', [ServiceController::class, 'edit'])->name('service.edit');
+Route::patch('/gigs/{id_service}/edit', [ServiceController::class,'update'])->name('service.update');
+Route::delete('/gigs/{id_service}/delete', [ServiceController::class,'destroy'])->name('service.destroy');
 
 Route::get('/language', [UserLanguageController::class, 'create'])->name('language.create');
 Route::post('/language', [UserLanguageController::class, 'store'])->name('language.store');
