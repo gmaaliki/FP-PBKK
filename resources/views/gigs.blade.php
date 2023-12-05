@@ -263,6 +263,16 @@
                             Report Service
                             </a>
                         </div>
+                        @if(auth()->user()->isAdmin)
+                            <div class="border border-gray-400 rounded-md px-2 py-1 ml-3">
+                                <form method="POST" action="{{ route('service.admin.destroy', ['id_service' => $service->id]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"><x-delete-icon/></a>
+                                </form>
+                            </div>
+                        @endif
+                        
                     </div>
                     <div class="flex mt-5">
                         <div class="border border-gray-300 w-32 py-3 text-center tab active" data-tab="basic">
