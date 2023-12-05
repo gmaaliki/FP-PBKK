@@ -1,4 +1,9 @@
 <x-app-layout>
+@if(session('success'))
+        <div class="flex items-center justify-center w-full h-8 py-auto bg-green-300 font-semibold">
+            {{ session('success') }}
+        </div>
+    @endif
 
 <style>
     /* Add your CSS styles here */
@@ -40,13 +45,13 @@
                                 <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
                             </svg>
                             <div class="ml-1">
-                            {{ number_format($service->avg_star_rating, 1) }}
+                            {{$service->average_star}}
                             </div>
                             <div class="ml-1">
                                 (
                             </div>
                             <div class="underline">
-                            {{ $service->total_reviews}}
+                            {{ count($reviews)}}
                             </div>
                             <div>
                                 )
@@ -135,13 +140,13 @@
                                     <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
                                 </svg>
                                 <div class="ml-1">
-                                {{ number_format($service->avg_star_rating, 1) }}
+                                {{ $service->average_star}}
                                 </div>
                                 <div class="ml-1">
                                     (
                                 </div>
                                 <div class="underline">
-                                {{ $service->total_reviews}}
+                                {{ count($reviews)}}
                                 </div>
                                 <div>
                                     )
@@ -182,7 +187,7 @@
                     </div>
                     <div class="flex">
                         <div class="w-1/2">
-                        {{ $service->total_reviews}} Reviews for this Gig
+                        {{ count($reviews)}} Reviews for this Gig
                         </div>
                         <div class="w-1/2">
                             <div class="flex items-center">
@@ -191,13 +196,13 @@
                                     <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873" fill="currentColor" />
                                 </svg>
                                 <div class="ml-1">
-                                {{ number_format($service->avg_star_rating, 1) }}
+                                {{ $service->average_star}}
                                 </div>
                                 <div class="ml-1">
                                     (
                                 </div>
                                 <div class="underline">
-                                {{ $service->total_reviews}}
+                                {{ count($reviews)}}
                                 </div>
                                 <div>
                                     )
@@ -207,15 +212,15 @@
                     </div>
 
                     <div class="w-full border-gray-300 border mt-12"></div>
-                    @if(count($userReviews) > 0)
-                        @foreach($userReviews as $review)
+                    @if(count($reviews) > 0)
+                        @foreach($reviews as $review)
                         
                         <div class="mt-8">
                             <div class="flex">
                                 <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
                                 <div>
                                     <div class="ml-4 font-semibold text-lg">
-                                        {{$review->name}}
+                                        {{$review->reviewer_name}}
                                     </div>
                                     <div class="ml-4 flex items-center">
                                         <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

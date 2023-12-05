@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subcategory;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SubcategoryController extends Controller
 {
@@ -18,7 +20,17 @@ class SubcategoryController extends Controller
         }
 
         // Get all services related to the subcategory
-        $services = $subcategoryModel->service()->get();
+        $services = Service::where('subcategory_id', $subcategoryModel->id)
+            ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
+            ->leftJoin('users', 'services.user_id', '=', 'users.id') // User who created the service
+            ->select(
+                'services.*',
+                'users.name as username',
+                DB::raw('COUNT(user_review.id) as total_reviews')
+            )
+            ->groupBy('services.id')
+            ->get();
+
 
         //dd($services);
         // Pass the services to the view

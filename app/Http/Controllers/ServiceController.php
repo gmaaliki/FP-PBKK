@@ -39,7 +39,7 @@ class ServiceController extends Controller
         ->get();
 
         $services = Service::join('users', 'services.user_id', '=', 'users.id')
-        ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
+        ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
         ->select(
             'services.*',
             'users.name as username',
@@ -49,6 +49,7 @@ class ServiceController extends Controller
         ->groupBy('services.id', 'users.name')
         ->take(30)
         ->get();
+
 
 
         return view('dashboard', compact('services', 'reccomendServices'));
@@ -127,10 +128,15 @@ class ServiceController extends Controller
         $languages = UserLanguage::where('user_id', $user_id)->pluck('language')->toArray();
 
         $user = User::find($user_id);
+        
+        $reviews = DB::table('user_review')
+        ->join('users', 'user_review.user_id', '=', 'users.id')
+        ->select('user_review.*', 'users.name as reviewer_name')
+        ->where('user_review.service_id', $id)
+        ->get();
 
-        $userReviews = UserReview::with('user')
-            ->where('user_id', $user_id)
-            ->get();
+       // dd($reviews);
+
  
 
         $registrationYear = $user->created_at->format('Y');
@@ -145,14 +151,13 @@ class ServiceController extends Controller
             'services.*',
             'users.name as username',
             'service_pictures.path as picture_path',
-            DB::raw('AVG(user_review.star_rating) as avg_star_rating'),
             DB::raw('COUNT(user_review.id) as total_reviews')
         )
         ->where('services.id', $id)
         ->groupBy('services.id', 'users.name', 'service_pictures.path')
         ->first(); // Use first() to get a single result
 
-        return view('gigs', compact('service', 'languages', 'registrationYear', 'userReviews'));
+        return view('gigs', compact('service', 'languages', 'registrationYear', 'reviews'));
     }
 
     /**
@@ -167,7 +172,7 @@ class ServiceController extends Controller
                 $join->on('services.id', '=', 'service_pictures.service_id')
                     ->whereRaw('service_pictures.id = (SELECT MIN(id) FROM service_pictures WHERE service_id = services.id)');
             })
-            ->join('user_review', 'services.user_id', '=', 'user_review.user_id')
+            ->join('user_review', 'services.id', '=', 'user_review.service_id')
             ->select(
                 'services.*',
                 'users.name as username',

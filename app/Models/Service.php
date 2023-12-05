@@ -27,6 +27,7 @@ class Service extends Model
         'image',
         'category_id',
         'subcategory_id',
+        'average_star',
     ];
 
     public function user() {
@@ -39,6 +40,10 @@ class Service extends Model
 
     public function servicereport() {
         return $this->hasMany(ServiceReport::class);
+    }
+
+    public function userreview() {
+        return $this->hasMany(UserReview::class);
     }
 
     public function transaction() {
