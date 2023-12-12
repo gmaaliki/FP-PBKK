@@ -63,7 +63,7 @@ Route::patch('/manage_order/complete/{id}/{status}', [TransactionController::cla
 Route::get('/review/{id}/{transaction_id}', [UserReviewController::class, 'index'])->name('review.show');
 Route::post('/review/{id}/{transaction_id}', [UserReviewController::class, 'store'])->name('review.store');
 
-Route::get('/admin/{id}', [AdminController::class, 'index'])->name('admin.show');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.show');
 Route::get('/report/{id}', [ServiceReportController::class, 'index'])->name('report.show');
 Route::post('/report/{id}', [ServiceReportController::class, 'store'])->name('report.store');
 
@@ -193,7 +193,7 @@ Route::get('/test-user-skill-relationship', function () {
     // Output the results (you can modify this part based on your needs)
     dd($user, $userWithRelatedData);
 });
-  
+
 //Route::post('/register_user_language', [UserLanguageController::class, 'store']);
 
 // Route::post('/register_user_skill', [UserSkillController::class, 'store']);

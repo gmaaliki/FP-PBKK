@@ -12,8 +12,9 @@ class ServiceReportController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index(Request $request)
     {
+        $id = $request->id;
         return view('report', compact('id'));
     }
 
