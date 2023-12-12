@@ -21,7 +21,7 @@
                 </form>
 
             </div>
-            
+
             <!-- Notification icon -->
             <div class="hidden sm:flex sm:items-center sm:ms-5">
                 <x-dropdown align="right" width="80">
@@ -167,7 +167,7 @@
                 </button>
             </div>
         </div>
-        
+
     </div>
 
     <div class="flex mt-4 border-gray-200 border ">
@@ -180,7 +180,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div> -->
-                
+
 
                 <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
                     <div class="group inline-block relative">
@@ -189,16 +189,16 @@
                         </x-nav-link>
                         <ul class="absolute hidden text-gray-800 bg-white border border-gray-300  space-y-1 py-4 px-3 rounded-l-sm group-hover:block w-60 h-30 left-0 mt-0">
                             <ul>
-                                    
+
                                     <li><a href="{{ route('subcategory.show', ['subcategory' => 'Logo & Brand Identity', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Logo & Brand Identity</a></li>
                                     <li><a href="{{ route('subcategory.show', ['subcategory' => 'Art & Illustration', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Art & Illustration</a></li>
                             </ul>
-                        </ul>   
+                        </ul>
                     </div>
                 </div>
 
-                    
-                   
+
+
                     <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
                         <div class="group inline-block relative">
                             <x-nav-link>
@@ -210,8 +210,8 @@
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Software Development', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Software Development</a></li>
                                     </ul>
                                 </ul>
-                              
-                    
+
+
                         </div>
                     </div>
 
@@ -226,7 +226,7 @@
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Social', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Social</a></li>
                                     </ul>
                                 </ul>
-                            
+
                         </div>
                     </div>
 
@@ -241,10 +241,10 @@
                                         <li><a href="{{ route('subcategory.show', ['subcategory' => 'Animation', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Animation</a></li>
                                     </ul>
                                 </ul>
-                    
-                    
+
+
                         </div>
-                        
+
                     </div>
 
                     <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
@@ -258,10 +258,10 @@
                                             <li><a href="{{ route('subcategory.show', ['subcategory' => 'Career Writing', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Career Writing</a></li>
                                         </ul>
                                     </ul>
-                            
-                        
+
+
                         </div>
-                        
+
                     </div>
 
                     <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
@@ -275,9 +275,9 @@
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Streaming & Audio', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Streaming & Audio</a></li>
                                             </ul>
                                         </ul>
-                
+
                         </div>
-                        
+
                     </div>
 
                     <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
@@ -291,7 +291,7 @@
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Business Management', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Business Management</a></li>
                                             </ul>
                                         </ul>
-                                    
+
                         </div>
                     </div>
 
@@ -306,9 +306,9 @@
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'Data Collection', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">Data Collection</a></li>
                                             </ul>
                                         </ul>
-                               
+
                         </div>
-                       
+
                     </div>
 
                     <div class="hidden space-x-4 sm:-my-px sm:ms-5 sm:flex">
@@ -322,11 +322,11 @@
                                                 <li><a href="{{ route('subcategory.show', ['subcategory' => 'People & Scenes', 'budgetLower' => 0, 'budgetUpper' => 999, 'time' => 999]) }}" class="block px-2 py-1 hover:bg-gray-200 font-extrabold">People & Scenes</a></li>
                                             </ul>
                                         </ul>
-                               
+
                         </div>
-                      
+
                     </div>
-          
+
             </div>
         </div>
 

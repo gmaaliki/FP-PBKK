@@ -22,7 +22,7 @@
 
                 <div class="mt-10 border border-t-gray-300 w-full">
                 </div>
-                    
+
                 <div class="">
                 <div class="mt-10">
                     <div class="flex">
@@ -35,8 +35,8 @@
                             <svg class="ml-2 h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M5.5 5h13a1 1 0 0 1 0.5 1.5L14 12L14 19L10 16L10 12L5 6.5a1 1 0 0 1 0.5 -1.5" /></svg>
                         </div>
                     </div>
-                
-                        <div class="tab-content hidden mt-2 rounded-lg border border-gray-300 p-5 w-64" id="budgetContent" data-subcategory="{{ $subcategoryModel->subcategory_name }}">   
+
+                        <div class="tab-content hidden mt-2 rounded-lg border border-gray-300 p-5 w-64" id="budgetContent" data-subcategory="{{ $subcategoryModel->subcategory_name }}">
                             <input id="budgetValue" name="budgetHidden" class="hidden" value="{{$budgetLower}}-{{$budgetUpper}}">
                             <!-- <div id="budgetValue" class="hidden" data-subcategory="{{$budgetLower}}-{{$budgetUpper}}"></div> -->
 
@@ -62,7 +62,7 @@
                                         Apply
                                     </button>
                                 </a>
-                            </div>          
+                            </div>
                         </div>
 
                         <div class="ml-36 tab-content hidden mt-2 rounded-lg border border-gray-300 p-5 w-64" id="deliveryContent">
@@ -91,10 +91,10 @@
                                 </a>
                             </div>
 
-   
+
                         </div>
 
-                        <div class="w-full mt-4">
+                        <div class="w-full mt-4 p-4">
 
                         @php
                             $filteredServices = $services->filter(function ($service) use ($budgetLower, $budgetUpper, $time) {
@@ -108,11 +108,11 @@
 
 
 
-                        @foreach($servicesChunks as $serviceChunk)                                    
+                        @foreach($servicesChunks as $serviceChunk)
                             <div class="flex w-full mt-5 gap-5">
                                 @foreach($serviceChunk as $service)
-                            
-                            
+
+
                                     <div class="w-56">
                                             <div id="" class="relative w-56 h-52">
                                             <!-- Carousel wrapper -->
@@ -120,8 +120,7 @@
                                                     <!-- Item 1 -->
                                                     <div>
                                                     <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
-                                                        <!-- <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."> -->
-                                                        @if($service->image != 'path')    
+                                                        @if(isset($service->image))
                                                             <img src="{{ Storage::url($service->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="image-service">
                                                         @else
                                                             <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
@@ -129,17 +128,21 @@
                                                     </a>
                                                     </div>
                                                 </div>
-        
+
                                             </div>
 
                                             <div class="mt-2 flex">
-                                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-7 w-7">
+                                                @if(isset($service->user_image))
+                                                    <img src="{{ Storage::url($service->user_image) }}" class="rounded-full h-7 w-7" alt="image-service">
+                                                @else
+                                                    <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="rounded-full h-7 w-7" alt="...">
+                                                @endif
                                                 <div>
                                                     <div class="ml-2 font-semibold text-base">
-                                                    <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
-                                                    {{ $service->username}}
-                                            </a>
-                                                    
+                                                        <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
+                                                            {{ $service->username}}
+                                                        </a>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -174,15 +177,15 @@
                                                     From ${{ $service->basic_plan_price}}
                                                     </a>
                                             </div>
-                                        
-                                    </div>  
-                                    
+
+                                    </div>
+
                                     @endforeach
                                 </div>
-                                
+
                                 @endforeach
                             </div>
-                   
+
                 </div>
             </div>
 
@@ -272,7 +275,7 @@
 
         console.log(timeValue);
 
-    
+
 
         var budgetValue = document.getElementById('budgetValue').value;
 

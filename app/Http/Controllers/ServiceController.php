@@ -12,7 +12,7 @@ use App\Models\User;
 use App\Models\UserReview;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
-use Illuminate\Support\Facades\Auth;    
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
@@ -34,8 +34,8 @@ class ServiceController extends Controller
         // ->get();
 
         $randomSubcategory = Subcategory::inRandomOrder()->first();
-        
-        
+
+
         $reccomendServices = Service::join('users', 'services.user_id', '=', 'users.id')
         ->leftJoin('user_review', 'services.id', '=', 'user_review.service_id')
         ->where('services.subcategory_id', $randomSubcategory->id) // Filter by the randomized subcategory ID
@@ -47,9 +47,9 @@ class ServiceController extends Controller
         ->groupBy('services.id', 'users.name')
         ->take(5)
 
-//         $randomSubcategoryId = Subcategory::inRandomOrder()->value('id'); 
-        
-        
+//         $randomSubcategoryId = Subcategory::inRandomOrder()->value('id');
+
+
 //         $reccomendServices = Service::join('users', 'services.user_id', '=', 'users.id')
 //         ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
 //         ->where('services.subcategory_id', $randomSubcategoryId) // Filter by the randomized subcategory ID
@@ -116,10 +116,14 @@ class ServiceController extends Controller
             'premium_plan_price' => 'required|integer',
             'premium_plan_description' => 'required|string|max:255',
             'premium_plan_days' => 'required|integer',
-            'image' => 'required|max:2048|mimes:jpeg,png,jpg'
+            'image' => 'max:2048|mimes:jpeg,png,jpg'
         ]);
 
-        $path = $request->file('image')->store('public/images');
+        if($request->has('image')) {
+            $path = $request->file('image')->store('public/images');
+        } else {
+            $path = NULL;
+        }
 
         $data = [
             'title' => $request->input('title'),
@@ -142,7 +146,7 @@ class ServiceController extends Controller
             'average_star' => 0,
         ];
 
-        $user->service()->create($data);        
+        $user->service()->create($data);
 
         $successMessage = "Gig successfully added";
 
@@ -172,7 +176,7 @@ class ServiceController extends Controller
         //     ->select(
         //         'users.*',
         //         'user_review.review_description as review_description',
-                
+
         //     )
         //     ->where('services.id', $id)
         //     ->get();
@@ -186,6 +190,7 @@ class ServiceController extends Controller
         ->select(
             'services.*',
             'users.name as username',
+            'users.image as user_image',
             DB::raw('AVG(user_review.star_rating) as avg_star_rating'),
             DB::raw('COUNT(user_review.id) as total_reviews')
         )
@@ -202,18 +207,19 @@ class ServiceController extends Controller
     public function filter(Request $request)
     {
         $searchBar = $request->input('search_bar');
+
         $services = Service::where('title', 'like', '%' . $searchBar . '%')
-            ->join('users', 'services.user_id', '=', 'users.id')
-            ->join('user_review', 'services.user_id', '=', 'user_review.user_id')
+            ->leftJoin('users', 'services.user_id', '=', 'users.id')
+            ->leftJoin('user_review', 'services.user_id', '=', 'user_review.user_id')
             ->select(
                 'services.*',
                 'users.name as username',
+                'users.image as user_image',
                 DB::raw('AVG(user_review.star_rating) as avg_star_rating'),
                 DB::raw('COUNT(user_review.id) as total_reviews')
             )
             ->groupBy('services.id', 'users.name')
             ->get();
-
 
         return view('searchfilter', compact('services', 'searchBar'));
     }
@@ -294,7 +300,7 @@ class ServiceController extends Controller
     public function destroy(Request $request)
     {
         $service = Service::find($request->id_service);
-        
+
         if($service->image) {
             Storage::delete($service->image);
         }
@@ -308,7 +314,7 @@ class ServiceController extends Controller
     public function destroyAdmin(Request $request)
     {
         $service = Service::find($request->id_service);
-        
+
         if($service->image) {
             Storage::delete($service->image);
         }
@@ -319,5 +325,5 @@ class ServiceController extends Controller
         return redirect()->route('dashboard')->with('success', $successMessage);
     }
 
-    
+
 }
