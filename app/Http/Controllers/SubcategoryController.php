@@ -26,11 +26,11 @@ class SubcategoryController extends Controller
             ->select(
                 'services.*',
                 'users.name as username',
+                'users.image as user_image',
                 DB::raw('COUNT(user_review.id) as total_reviews')
             )
             ->groupBy('services.id')
             ->get();
-
 
         //dd($services);
         // Pass the services to the view

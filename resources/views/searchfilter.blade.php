@@ -18,15 +18,15 @@
                 </div>
                 <div class="mt-10 border border-t-gray-300 w-full">
                 </div>
-                    
+
                 <div class="">
                 <div class="mt-10">
-                
+
                         <div class="w-full mt-4">
                         @php
                             $servicesChunks = $services->chunk(5);
                         @endphp
-                        @foreach($servicesChunks as $serviceChunk)                                 
+                        @foreach($servicesChunks as $serviceChunk)
                             <div class="flex w-full mt-5 gap-5">
                             @foreach($serviceChunk as $service)
                                     <div class="w-56">
@@ -36,15 +36,24 @@
                                                     <!-- Item 1 -->
                                                     <div>
                                                     <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none hover:underline">
-                                                        <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                                        @if(isset($service->image))
+                                                            <img src="{{ Storage::url($service->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="image-service">
+                                                        @else
+                                                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                                        @endif
                                                     </a>
                                                     </div>
                                                 </div>
-        
+
                                             </div>
 
                                             <div class="mt-2 flex">
-                                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-7 w-7">
+                                                <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
+                                                    @if(isset($service->user_image))
+                                                        <img src="{{ Storage::url($service->user_image) }}" class="rounded-full h-7 w-7 mr-2" alt="image-service">
+                                                    @else
+                                                        <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="rounded-full h-14 w-14" alt="...">
+                                                    @endif
                                                 <div>
                                                 <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
                                             {{$service->username}}
@@ -82,15 +91,15 @@
                                             From ${{ $service->basic_plan_price}}
                                                     </a>
                                             </div>
-                                        
-                                    </div>  
+
+                                    </div>
                                     @endforeach
-                                   
+
                                 </div>
                                 @endforeach
-                                
+
                             </div>
-                            
+
                 </div>
             </div>
 
@@ -180,7 +189,7 @@
 
         console.log(timeValue);
 
-    
+
 
         var budgetValue = document.getElementById('budgetValue').value;
 

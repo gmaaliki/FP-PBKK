@@ -34,11 +34,19 @@
                     {{ $service->title}}
                 </div>
                 <div class="mt-5 flex">
-                    <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
+                        <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
+                        @if(isset($service->user_image))
+                            <img src="{{ Storage::url($service->user_image) }}" class="rounded-full h-14 w-14" alt="image-service">
+                        @else
+                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="rounded-full h-14 w-14" alt="...">
+                        @endif
+                        </a>
                     <div>
-                        <div class="ml-4 font-semibold text-lg">
-                        {{ $service->username}}
-                        </div>
+                        <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
+                            <div class="ml-4 font-semibold text-lg">
+                                {{ $service->username}}
+                            </div>
+                        </a>
                         <div class="ml-4 flex items-center">
                             <svg class="h-4 w-4 black width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z"/>
@@ -59,24 +67,22 @@
                         </div>
                     </div>
                 </div>
-                        
-                <div class="mt-5">
-                    
 
+                <div class="mt-5">
                     <div id="default-carousel" class="relative w-full" data-carousel="static">
                         <!-- Carousel wrapper -->
                         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                             <!-- Item 1 -->
                             <div class="" >
-                            @if($service->image != 'path')    
+                            @if(isset($service->image))
                                 <img src="{{ Storage::url($service->image) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="image-service">
                             @else
                                 <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                             @endif
                             </div>
-                       
+
                         </div>
-                    
+
                     </div>
 
                     <div class="mt-10">
@@ -93,8 +99,13 @@
                             About the seller
                     </div>
                     <div class="mt-5 flex">
-                        
-                        <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
+                        <a href="{{ route('profile.page.show', ['id' => $service->user_id]) }}" class="text-decoration-none">
+                            @if(isset($service->user_image))
+                                <img src="{{ Storage::url($service->user_image) }}" class="rounded-full h-14 w-14" alt="image-service">
+                            @else
+                                <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="rounded-full h-14 w-14" alt="...">
+                            @endif
+                        </a>
                         <div>
                             <div class="ml-4 font-semibold text-lg">
                             {{ $service->username}}
@@ -143,7 +154,7 @@
                                         <div class="font-normal">
                                         {{ $registrationYear }}
                                         </div>
-                           </div>  
+                           </div>
                         </div>
                     </div>
 
@@ -179,7 +190,7 @@
                     <div class="w-full border-gray-300 border mt-12"></div>
                     @if(count($reviews) > 0)
                         @foreach($reviews as $review)
-                        
+
                         <div class="mt-8">
                             <div class="flex">
                                 <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" alt="Example Image" class="rounded-full h-14 w-14">
@@ -204,7 +215,7 @@
                                 <div class="ml-16 px-3 text-justify">
                                                {{$review->review_description}}
                                 </div>
-                            </div>  
+                            </div>
                             <div class="w-full border-gray-300 border mt-8"></div>
                         </div>
                         @endforeach
@@ -239,7 +250,7 @@
                                 </form>
                             </div>
                         @endif
-                        
+
                     </div>
                     <div class="flex mt-5">
                         <div class="border border-gray-300 w-32 py-3 text-center tab active" data-tab="basic">
@@ -267,7 +278,7 @@
                                 {{$service->basic_plan_description}}
                                 </div>
                             </div>
-                                        
+
                             <div class="mt-2 px-5 flex">
                                 <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                 <div class="ml-3">
@@ -282,7 +293,7 @@
                                     </button>
                                 </div>
                             </form>
-                        
+
                         </div>
                         <div class="tab-content hidden" id="standardContent">
                         <div class="flex px-5 font-semibold">
@@ -290,15 +301,15 @@
                                 {{$service->standard_plan_title}}
                                 </div>
                                 <div class="w-1/2 flex justify-end">
-                                ${{$service->standard_plan_price}}   
+                                ${{$service->standard_plan_price}}
                                 </div>
                             </div>
                             <div class="flex mt-5 px-5">
                                 <div class="w-80 text-justify">
-                                {{$service->standard_plan_description}}                                
+                                {{$service->standard_plan_description}}
                             </div>
                             </div>
-                                        
+
                             <div class="mt-2 px-5 flex">
                                 <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                 <div class="ml-3">
@@ -320,15 +331,15 @@
                                 {{$service->premium_plan_title}}
                                 </div>
                                 <div class="w-1/2 flex justify-end">
-                                ${{$service->premium_plan_price}}  
+                                ${{$service->premium_plan_price}}
                                 </div>
                             </div>
                             <div class="flex mt-5 px-5">
                                 <div class="w-80 text-justify">
-                                {{$service->premium_plan_description}}                                 
+                                {{$service->premium_plan_description}}
                             </div>
                             </div>
-                                        
+
                             <div class="mt-2 px-5 flex">
                                 <svg class="h-6 w-6 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                 <div class="ml-3">
@@ -348,11 +359,11 @@
                 </div>
             </div>
 
-            
 
 
-            
-            
+
+
+
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

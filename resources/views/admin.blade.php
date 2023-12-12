@@ -30,16 +30,16 @@
                         </div>
                         <div class="w-1/4 border border-gray-200 text-center py-2">
                             {{ $report->description}}
-                   
+
                         </div>
                         <div class="w-1/4 border border-gray-200 text-center py-2">
-                            <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
+                            <a href="{{ route('service.show', ['id' => $report->service_id, 'user_id' => $report->user_id]) }}" class="text-decoration-none">
                                 link
                             </a>
                         </div>
                     </div>
                 @endforeach
-            @else    
+            @else
             <div class="flex p-3 px-5 font-base border border-b-gray-300">
                 No pending orders to show
             </div>

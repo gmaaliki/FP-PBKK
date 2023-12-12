@@ -25,7 +25,7 @@
                                 <h1 class="text-center">{{ $user->name }}</h1>
                             </div>
                         </div>
-                    </div>   
+                    </div>
 
                     <div class="bg-white border border-gray-300 mt-6 px-4">
                         <div class="py-4">
@@ -166,15 +166,15 @@
 
                 </div>
 
-                    
-        
+
+
 
                 <div class="flex-col w-3/5 m-8 bg-white border border-gray-300">
                     <div class="flex justify-center align-middle font-semibold text-3xl p-4">
                         <div>
                         {{ __("Gigs list") }}
                         </div>
-                        
+
                         <a href="{{ route('service.create') }}">
                             <x-primary-button class="ml-5" >
                                 {{ __("Add gig") }}
@@ -186,7 +186,11 @@
                             <div class="w-full h-48 flex rounded border border-gray-300 my-5">
                                 <div class="relative flex-shrink-0 w-48 h-48 overflow-hidden">
                                     <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
-                                        <img src="{{ Storage::url($service->image) }}" class="object-cover w-full h-full" alt="image-service">
+                                        @if(isset($service->image))
+                                            <img src="{{ Storage::url($service->image) }}" class="object-cover w-full h-full" alt="image-service">
+                                        @else
+                                            <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="object-cover w-full h-full" alt="no image">
+                                        @endif
                                     </a>
                                 </div>
 
@@ -232,7 +236,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                         @endforeach
                     </div>
                 </div>

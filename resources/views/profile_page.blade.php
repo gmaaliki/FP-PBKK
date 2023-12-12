@@ -11,13 +11,8 @@
                 <div class="flex-col w-2/5 m-8">
                     <div class="flex-col align-center ">
                         <div class="bg-white p-5 border-gray-300 border">
-                            <div class="flex justify-end">
-                                <a href=" {{ route('profile.edit') }}">
-                                    <x-edit-icon/>
-                                </a>
-                            </div>
-                            @if($user->image)
-                                <img src="{{ asset(Storage::url(Auth::user()->image)) }}" class="w-40 h-40 rounded-full bg-white border-2 mx-auto" alt="image-service">
+                            @if(isset($user->image))
+                                <img src="{{ asset(Storage::url($user->image)) }}" class="w-40 h-40 rounded-full bg-white border-2 mx-auto" alt="image-service">
                             @else
                                 <img class="w-40 h-40 rounded-full bg-white border-2 mx-auto" src="https://www.svgrepo.com/show/396909/letter-s.svg" alt="Rounded avatar">
                             @endif
@@ -25,7 +20,7 @@
                                 <h1 class="text-center">{{ $user->name }}</h1>
                             </div>
                         </div>
-                    </div>   
+                    </div>
 
                     <div class="bg-white border border-gray-300 mt-6 px-4">
                         <div class="py-4">
@@ -34,7 +29,7 @@
                                         <div class="w-1/2 text-left">
                                             <h3>Description</h3>
                                         </div>
-                                
+
                                     </div>
                                     <p>
                                         {{ $user->description }}
@@ -105,7 +100,7 @@
                             <div class="flex font-semibold">
                                 <div class="w-1/2 text-left">
                                     <h3>Certification</h3>
-                                </div>  
+                                </div>
                             </div>
                             @foreach($certifications as $certification)
                                 <div class="flex my-2">
@@ -120,22 +115,22 @@
 
                 </div>
 
-                    
-        
+
+
 
                 <div class="flex-col w-3/5 m-8 bg-white border border-gray-300">
                     <div class="flex justify-center align-middle font-semibold text-3xl p-4">
                         <div>
                         {{ __("Gigs list") }}
                         </div>
-                        
+
                     </div>
                     <div class="px-10">
                         @foreach($services as $service)
                             <div class="w-full h-48 flex rounded border border-gray-300 my-5">
                                 <div class="relative flex-shrink-0 w-48 h-48 overflow-hidden">
                                     <a href="{{ route('service.show', ['id' => $service->id, 'user_id' => $service->user_id]) }}" class="text-decoration-none">
-                                    @if($service->image != 'path')    
+                                    @if(isset($service->image))
                                         <img src="{{ Storage::url($service->image) }}" class="object-cover w-full h-full" alt="image-service">
                                     @else
                                         <img src="{{ asset('images/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
@@ -175,7 +170,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                         @endforeach
                     </div>
                 </div>
