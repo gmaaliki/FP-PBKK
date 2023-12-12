@@ -18,9 +18,9 @@ class TransactionController extends Controller
     {
         $user = Auth::user();
         $transactions = $user->transaction()->with('service')->get();
-
+//        dd($transactions);
         return view('my_order', compact('transactions'));
-        
+
     }
 
     public function manage()
@@ -109,7 +109,7 @@ class TransactionController extends Controller
             abort(404); // Or handle the case when the file is not found
         }
 
-        
+
         return response()->download($filePath); // Change 'desired_filename.pdf' to the desired file name
     }
     /**
@@ -134,37 +134,37 @@ class TransactionController extends Controller
     public function update($id, $status)
     {
         $transaction = Transaction::find($id);
-    
+
         if (!$transaction) {
             return redirect()->route('get.sellorder')->with('error', 'Transaction not found.');
         }
-    
+
         $transaction->update([
             'status' => $status,
         ]);
-    
+
         $successMessage = "Order successfully updated";
-    
+
         return redirect()->route('get.sellorder')->with('success', $successMessage);
     }
 
     public function update_my_order($id, $status)
     {
         $transaction = Transaction::find($id);
-    
+
         if (!$transaction) {
             return redirect()->route('get.myorder')->with('error', 'Transaction not found.');
         }
-    
+
         $transaction->update([
             'status' => $status,
         ]);
-    
+
         $successMessage = "Order successfully updated";
-    
+
         return redirect()->route('get.myorder')->with('success', $successMessage);
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */

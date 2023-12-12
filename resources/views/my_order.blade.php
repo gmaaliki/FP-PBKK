@@ -95,7 +95,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            @else    
+                            @else
                             <div class="flex p-3 px-5 font-base border border-b-gray-300">
                                 No pending orders to show
                             </div>
@@ -139,8 +139,8 @@
                                                 // Calculate days remaining
                                                 $updatedDate = \Carbon\Carbon::parse($transaction->updated_at);
                                                 $planDays = $transaction->service->{$transaction->package.'_plan_days'};
-                                                $dueDate = $updatedDate->addDays($planDays);
-                                                $daysRemaining = now()->diffInDays($dueDate, false);
+                                                $dueDate = $updatedDate->copy()->addDays($planDays);
+                                                $daysRemaining = ceil(abs(now()->diffInSeconds($dueDate, false)) / (24*60*60));
                                             @endphp
 
                                             @if ($daysRemaining > 0)
@@ -160,14 +160,14 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            @else    
+                            @else
                             <div class="flex p-3 px-5 font-base border border-b-gray-300">
                                 No active orders to show
                             </div>
                             @endif
                         </div>
 
-             
+
                         <div class="tab-content hidden" id="completedContent">
                             <div class="flex p-3 px-5 font-semibold border border-b-gray-300">
                                 COMPLETED
@@ -192,7 +192,7 @@
                                         GIVE REVIEW
                                 </div>
 
-                                
+
                             </div>
                             @if(count($transactions->where('status', 'completed')) > 0)
                                 @foreach($transactions->where('status', 'completed') as $index => $transaction)
@@ -232,7 +232,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            @else    
+                            @else
                             <div class="flex p-3 px-5 font-base border border-b-gray-300">
                                 No completed orders to show
                             </div>
@@ -256,7 +256,7 @@
                                 <div class="w-1/4 border border-gray-200 text-center py-2">
                                         PRICE
                                 </div>
-                                
+
                             </div>
                             @if(count($transactions->where('status', 'cancelled')) > 0)
                                 @foreach($transactions->where('status', 'cancelled') as $index => $transaction)
@@ -280,7 +280,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            @else    
+                            @else
                             <div class="flex p-3 px-5 font-base border border-b-gray-300">
                                 No canceled orders to show
                             </div>
